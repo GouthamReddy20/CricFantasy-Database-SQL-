@@ -1,6 +1,6 @@
 # 🏏 CricFantasy Database – Mini Project
 
-**Name:** [Your Name]
+**Name:** C S GOUTHAM REDDY
 **Domain:** Database Management / Data Analysis
 **Duration:** Academic Mini Project
 
