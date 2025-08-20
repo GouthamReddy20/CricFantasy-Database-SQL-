@@ -1,0 +1,570 @@
+--- QUERIES
+
+--1 Select all users:
+SELECT * FROM Users;
+
+--2 Find users with a specific email domain (e.g., @email.com): SELECT * FROM Users WHERE Email_ID LIKE '%@email.com';
+
+--3 Count the number of users:
+SELECT COUNT(*) AS Total_Users FROM Users;
+
+--4 Find users without a phone number:
+SELECT * FROM Users WHERE phone_no IS NULL;
+
+--5 Update a user's password:
+UPDATE Users SET Password = 'NewPassword123' WHERE User_ID = 1; Select * from users
+
+
+--6 Delete a user by ID:
+DELETE FROM Users WHERE User_ID = 10;
+Select * from users
+--7 Find users with names starting with 'A': SELECT * FROM Users WHERE User_Name LIKE 'A%';
+--8 Find users with phone numbers starting with '98': SELECT * FROM Users WHERE phone_no LIKE '98%';
+--9 Find the top 5 users by ID:
+SELECT TOP 5 * FROM Users ORDER BY User_ID;
+--10 Find users with duplicate emails:
+SELECT Email_ID, COUNT(*)
+FROM Users
+GROUP BY Email_ID HAVING COUNT(*) > 1;
+--11 Select all umpires:
+
+SELECT * FROM Umpire;
+--12 Find umpires from a specific country (e.g., Australia): SELECT * FROM Umpire WHERE Country = 'Australia';
+--13 Find umpires who have officiated more than 200 matches: SELECT * FROM Umpire WHERE Matches_Officiated > 200;
+--14 Count the number of umpires from each country:
+SELECT Country, COUNT(*) AS Umpire_Count FROM Umpire
+GROUP BY Country;
+
+
+--15 Find the oldest umpire:
+SELECT TOP 1 * FROM Umpire ORDER BY Date_of_Birth;
+--16 Find umpires born after 1970:
+SELECT * FROM Umpire WHERE Date_of_Birth > '1970-01-01';
+
+--17 Update the number of matches officiated for an umpire:
+UPDATE Umpire SET Matches_Officiated = 300 WHERE Umpire_ID = 101; Select * from Umpire
+
+--18 Delete an umpire by ID:
+DELETE FROM Umpire WHERE Umpire_ID = 115; Select * from umpire
+--19 Find umpires with unique names:
+SELECT Umpire_Name FROM Umpire GROUP BY Umpire_Name HAVING COUNT(*) = 1;
+--20 Find the umpire with the most matches officiated: SELECT TOP 1 * FROM Umpire ORDER BY Matches_Officiated DESC;
+
+--21 Select all venues:
+SELECT * FROM Venue;
+
+--22 Find venues in a specific city (e.g., Mumbai): SELECT * FROM Venue WHERE City = 'Mumbai';
+
+--23 Find venues with a capacity greater than 50,000: SELECT * FROM Venue WHERE Capacity > 50000;
+--24 Count the number of venues in each country:
+
+SELECT Country, COUNT(*) AS Venue_Count FROM Venue
+GROUP BY Country;
+
+
+--25 Find the venue with the largest capacity: SELECT TOP 1 * FROM Venue ORDER BY Capacity DESC;
+--26 Find venues with names containing 'Stadium': SELECT * FROM Venue WHERE Venue_Name LIKE '%Stadium%';
+
+--27 Update the capacity of a venue:
+UPDATE Venue SET Capacity = 75000 WHERE Venue_ID = 501; Select * from Venue
+
+--28 Delete a venue by ID:
+
+DELETE FROM Venue WHERE Venue_ID = 510;
+Select * from venue
+
+--29 Find venues with duplicate names: SELECT Venue_Name, COUNT(*)
+FROM Venue
+GROUP BY Venue_Name HAVING COUNT(*) > 1;
+
+
+
+
+--30 Find venues in India:
+SELECT * FROM Venue WHERE Country = 'India';
+
+
+--31 Select all teams:
+
+SELECT * FROM Team;
+
+
+--32 Find teams from a specific country (e.g., India):
+SELECT * FROM Team WHERE Country = 'India';
+
+--33 Count the number of teams in each country:
+SELECT Country, COUNT(*) AS Team_Count FROM Team
+GROUP BY Country;
+
+
+--34 Find teams with names starting with 'M':
+SELECT * FROM Team WHERE Team_Name LIKE 'M%';
+--35 Find IPL teams:
+SELECT * FROM Team WHERE Team_Name LIKE '%Super%' OR Team_Name LIKE '%Royal%';
+--36 Update a team's name:
+UPDATE Team SET Team_Name = 'New Team Name' WHERE Team_ID = 1; Select * from Team
+
+
+--37 Delete a team by ID:
+
+DELETE FROM Team WHERE Team_ID = 20;
+Select * from team
+
+--38 Find teams with duplicate names:
+SELECT Team_Name, COUNT(*) FROM Team
+GROUP BY Team_Name HAVING COUNT(*) > 1;
+
+
+--39 Find the team with the most players:
+SELECT Team_ID, Team_Name, COUNT(*) AS Player_Count FROM Player
+GROUP BY Team_ID, Team_Name ORDER BY Player_Count DESC;
+--40 Find teams without any players:
+SELECT * FROM Team
+WHERE Team_ID NOT IN (SELECT DISTINCT Team_ID FROM Player);
+--41 Select all series:
+SELECT * FROM Series;
+
+--42 Find series hosted in a specific country (e.g., India):
+
+
+SELECT * FROM Series WHERE Host_Country = 'India';
+
+
+--43 Find ongoing series:
+SELECT * FROM Series WHERE Status = 'Ongoing';
+--44 Count the number of series by format:
+SELECT Format, COUNT(*) AS Series_Count FROM Series
+GROUP BY Format;
+
+
+--45 Find series with more than 10 matches:
+SELECT * FROM Series WHERE Number_of_Matches > 10;
+
+
+--46 Update the status of a series:
+UPDATE Series SET Status = 'Completed' WHERE Series_ID = 3001; Select * from Series
+
+
+--47 Delete a series by ID:
+
+DELETE FROM Series WHERE Series_ID = 3005;
+
+--48 Find series with duplicate names:
+SELECT Series_Name, COUNT(*) FROM Series
+GROUP BY Series_Name HAVING COUNT(*) > 1;
+--49 Find the series with the most matches:
+SELECT TOP 1 * FROM Series ORDER BY Number_of_Matches DESC;
+
+--50 Find series starting in 2024:
+SELECT * FROM Series WHERE Start_Date >= '2024-01-01';
+
+--51 Select all matches:
+SELECT * FROM Matches;
+
+
+--52 Find matches in a specific series (e.g., Series_ID = 3001): SELECT * FROM Matches WHERE Series_ID = 3001;
+
+
+--53 Find matches with a specific result (e.g., Team1 Win): SELECT * FROM Matches WHERE Result = 'Team1 Win';
+
+
+--54 Count the number of matches by status: SELECT Status, COUNT(*) AS Match_Count
+FROM Matches GROUP BY Status;
+
+
+
+--55 Find matches where the toss decision was 'Bat': SELECT * FROM Matches WHERE Toss_Decision = 'Bat';
+
+
+
+
+
+
+--56 Update the result of a match:
+UPDATE Matches SET Result = 'Team2 Win' WHERE Match_ID = 'INDvAUS_1'; Select * from Matches
+
+
+--57 Delete a match by ID:
+DELETE FROM Matches WHERE Match_ID = 'ENGvPAK_2';
+
+
+--58 Find matches with duplicate IDs:
+SELECT Match_ID, COUNT(*)
+FROM Matches GROUP BY Match_ID
+HAVING COUNT(*) > 1;
+
+--59 Find the match with the most runs scored:
+SELECT TOP 1 * FROM LiveScores ORDER BY Total_Runs DESC;
+
+--60 Find matches played at a specific venue (e.g., Venue_ID = 500): SELECT * FROM Matches WHERE Venue_ID = 500;
+
+
+--61 Select all players:
+SELECT * FROM Player;
+
+--62 Find players from a specific team (e.g., Team_ID = 1): SELECT * FROM Player WHERE Team_ID = 1;
+
+
+
+--63 Find players of a specific type (e.g., Batsman): SELECT * FROM Player WHERE Player_Type = 'Batsman';
+
+
+--64 Count the number of players by team:
+SELECT Team_ID, Team_Name, COUNT(*) AS Player_Count FROM Player
+GROUP BY Team_ID, Team_Name;
+
+
+--65 Find players born after 1990:
+SELECT * FROM Player WHERE DOB > '1990-01-01';
+
+
+--66 Update a player's batting style:
+UPDATE Player SET Batting_Style = 'Left-handed' WHERE Player_ID = 1001;
+
+
+--67 Delete a player by ID:
+DELETE FROM Player WHERE Player_ID = 1100;
+
+
+--68 Find players with duplicate names: SELECT Player_Name, COUNT(*)
+FROM Player
+GROUP BY Player_Name HAVING COUNT(*) > 1;
+
+
+
+
+--69 Find the oldest player:
+SELECT TOP 1 * FROM Player ORDER BY DOB;
+
+--70 Find players with a specific bowling style (e.g., Legbreak): SELECT * FROM Player WHERE Bowling_Style = 'Legbreak';
+
+
+--71 Select all live scores:
+SELECT * FROM LiveScores;
+
+
+--72 Find live scores for a specific match (e.g., Match_ID = 'INDvAUS_1'): SELECT * FROM LiveScores WHERE Match_ID = 'INDvAUS_1';
+
+
+--73 Find live scores where the total runs are greater than 150: SELECT * FROM LiveScores WHERE Total_Runs > 150;
+
+
+--74 Count the number of live scores by match:
+SELECT Match_ID, COUNT(*) AS Score_Count FROM LiveScores
+GROUP BY Match_ID;
+
+
+--75 Find live scores with the most wickets:
+SELECT TOP 1 * FROM LiveScores ORDER BY Wickets DESC;
+
+
+--76 Update the total runs in a live score:
+UPDATE LiveScores SET Total_Runs = 200 WHERE Match_ID = 'INDvAUS_1';
+
+
+--77 Delete a live score by match ID:
+DELETE FROM LiveScores WHERE Match_ID = 'ENGvPAK_2';
+
+--78 Find live scores with duplicate match IDs:
+SELECT Match_ID, COUNT(*)
+FROM LiveScores GROUP BY Match_ID HAVING COUNT(*) > 1;
+
+--79 Find the live score with the highest total runs: SELECT TOP 1 * FROM LiveScores ORDER BY Total_Runs DESC;
+
+
+--80 Find live scores where the bowler is 'Mitchell Starc': SELECT * FROM LiveScores WHERE Bowler_Name = 'Mitchell Starc';
+
+
+
+--81 Select all player stats:
+SELECT * FROM PlayerStats;
+
+
+
+--82 Find player stats for a specific match (e.g., Match_ID = 'INDvAUS_1'): SELECT * FROM PlayerStats WHERE Match_ID = 'INDvAUS_1';
+
+
+
+
+
+--83 Find players who scored more than 50 runs in a match:
+SELECT * FROM PlayerStats WHERE Runs_Scored > 50;
+
+
+--84 Count the number of players with a 5-wicket haul:
+SELECT COUNT(*) AS Five_Wicket_Hauls FROM PlayerStats
+WHERE Wickets_Taken = 5;
+
+
+--85 Find players with the most runs in a match:
+SELECT TOP 1 * FROM PlayerStats ORDER BY Runs_Scored DESC;
+
+
+--86 Update a player's runs scored:
+UPDATE PlayerStats SET Runs_Scored = 100 WHERE Match_ID = 'INDvAUS_1' AND Player_ID = 1001;
+
+--87 Delete a player's stats by match ID and player ID:
+DELETE FROM PlayerStats WHERE Match_ID = 'ENGvPAK_2' AND Player_ID = 1026;
+
+
+
+--88 Find players with duplicate stats in a match:
+SELECT Match_ID, Player_ID, COUNT(*) FROM PlayerStats
+GROUP BY Match_ID, Player_ID HAVING COUNT(*) > 1;
+
+--89 Find the player with the most wickets in a match:
+SELECT TOP 1 * FROM PlayerStats ORDER BY Wickets_Taken DESC;
+
+
+--90 Find players with a century (100+ runs) in a match:
+SELECT * FROM PlayerStats WHERE Runs_Scored >= 100;
+
+
+
+--91 Select all rankings:
+SELECT * FROM Rankings;
+
+
+
+--92 Find rankings for a specific format (e.g., ODI):
+SELECT * FROM Rankings WHERE Format = 'ODI';
+
+
+
+--93 Find the top-ranked batsman in Test format:
+SELECT TOP 1 * FROM Rankings WHERE Format = 'Test' AND Player_Role = 'Batsman' ORDER BY Current_Rank;
+
+--94 Count the number of players in each format: SELECT Format, COUNT(*) AS Player_Count
+FROM Rankings GROUP BY Format;
+
+
+
+
+
+
+
+--95 Find players with ranking points greater than 800:
+SELECT * FROM Rankings WHERE Ranking_Points > 800;
+
+
+--96 Update a player's ranking points:
+UPDATE Rankings SET Ranking_Points = 900 WHERE Player_ID = 1001;
+
+
+--97 Delete a ranking by player ID:
+DELETE FROM Rankings WHERE Player_ID = 1100;
+
+
+
+--98 Find players with duplicate rankings:
+SELECT Format, Player_Role, Player_ID, COUNT(*) FROM Rankings
+GROUP BY Format, Player_Role, Player_ID HAVING COUNT(*) > 1;
+
+
+--99 Find the player with the highest ranking points:
+SELECT TOP 1 * FROM Rankings ORDER BY Ranking_Points DESC;
+--100 Find the top 5 bowlers in T20 format:
+SELECT TOP 5 * FROM Rankings WHERE Format = 'T20' AND Player_Role = 'Bowler' ORDER BY Current_Rank;
+--101 Select all user teams:
+SELECT * FROM UserTeam;
+--102 Find user teams for a specific user (e.g., User_ID = 1):
+SELECT * FROM UserTeam WHERE User_ID = 1;
+
+
+--103 Find user teams with a specific formation (e.g., '5-3-3'):
+SELECT * FROM UserTeam WHERE Formation = '5-3-3';
+
+--104 Count the number of user teams by user:
+SELECT User_ID, COUNT(*) AS Team_Count FROM UserTeam GROUP BY User_ID;
+
+
+
+--105 Find user teams with the most credits used:
+SELECT TOP 1 * FROM UserTeam ORDER BY Total_Credits DESC;
+
+
+--106 Update a user team's formation:
+UPDATE UserTeam SET Formation = '6-4-1' WHERE Team_ID = 1;
+
+--107 Delete a user team by ID:
+DELETE FROM UserTeam WHERE Team_ID = 10;
+
+--108 Find user teams with duplicate names:
+SELECT User_Name, COUNT(*) FROM UserTeam GROUP BY User_Name HAVING COUNT(*) > 1;
+
+
+--109 Find the user team with the most players:
+SELECT Team_ID, COUNT(*) AS Player_Count FROM TeamPlayers GROUP BY Team_ID ORDER BY Player_Count DESC;
+
+
+--110 Find user teams without any players:
+SELECT * FROM UserTeam WHERE Team_ID NOT IN (SELECT DISTINCT Team_ID FROM TeamPlayers);
+
+--111 Select all team players:
+SELECT * FROM TeamPlayers;
+
+
+--112 Find players in a specific user team (e.g., Team_ID = 1):
+SELECT * FROM TeamPlayers WHERE Team_ID = 1;
+
+--113 Find substitute players in a team:
+SELECT * FROM TeamPlayers WHERE Is_Substitute = 1;
+
+--114 Count the number of players in each team:
+SELECT Team_ID, COUNT(*) AS Player_Count FROM TeamPlayers GROUP BY Team_ID;
+
+--115 Find players in the 'Playing' position:
+SELECT * FROM TeamPlayers WHERE Position = 'Playing';
+
+
+--116 Update a player's position:
+UPDATE TeamPlayers SET Position = 'Bench' WHERE Team_ID = 1 AND Player_ID = 1001;
+
+--117 Delete a player from a team:
+DELETE FROM TeamPlayers WHERE Team_ID = 1 AND Player_ID = 1001;
+
+--118 Find duplicate players in a team:
+SELECT Team_ID, Player_ID, COUNT(*) FROM TeamPlayers GROUP BY Team_ID, Player_ID HAVING COUNT(*) > 1;
+
+--119 Find the team with the most substitutes:
+SELECT Team_ID, COUNT(*) AS Substitute_Count FROM TeamPlayers WHERE Is_Substitute = 1 GROUP BY Team_ID ORDER BY Substitute_Count DESC;
+
+
+--120 Find players who are captains in their teams:
+SELECT * FROM TeamPlayers WHERE Player_ID IN (SELECT Captain_ID FROM UserTeam);
+--121 Select all contests:
+SELECT * FROM Contest;
+--122 Find contests for a specific match (e.g., Match_ID = 'INDvAUS_1'): SELECT * FROM Contest WHERE Match_ID = 'INDvAUS_1';
+
+--123 Find contests with a specific type (e.g., 'Mega'):
+SELECT * FROM Contest WHERE Contest_Type = 'Mega';
+
+
+--124 Count the number of contests by type:
+SELECT Contest_Type, COUNT(*) AS Contest_Count FROM Contest GROUP BY Contest_Type;
+
+
+--125 Find contests with a prize pool greater than 5000: SELECT * FROM Contest WHERE Prize_Pool > 5000;
+
+
+--126 Update a contest's status:
+UPDATE Contest SET Status = 'Completed' WHERE Contest_ID = 1;
+
+
+--127 Delete a contest by ID:
+DELETE FROM Contest WHERE Contest_ID = 10;
+
+--128 Find contests with duplicate names:
+SELECT Contest_Name, COUNT(*) FROM Contest GROUP BY Contest_Name HAVING COUNT(*) > 1;
+--129 Find the contest with the largest prize pool:
+SELECT TOP 1 * FROM Contest ORDER BY Prize_Pool DESC;
+
+--130 Find contests with no participants:
+SELECT * FROM Contest WHERE Current_Participants = 0;
+
+--131 Select all user contest entries:
+SELECT * FROM UserContest;
+--132 Find user contest entries for a specific user (e.g., User_ID = 1): SELECT * FROM UserContest WHERE User_ID = 1;
+--133 Find user contest entries with a specific status (e.g., 'Completed'): SELECT * FROM UserContest WHERE Status = 'Completed';
+--134 Count the number of entries in each contest:
+SELECT Contest_ID, COUNT(*) AS Entry_Count FROM UserContest GROUP BY Contest_ID;
+--135 Find user contest entries with winnings greater than 500: SELECT * FROM UserContest WHERE Winnings > 500;
+
+--136 Update a user's contest status:
+UPDATE UserContest SET Status = 'Withdrawn' WHERE Entry_ID = 1;
+
+--137 Delete a user contest entry by ID:
+DELETE FROM UserContest WHERE Entry_ID = 10; Select * from UserContest
+
+--138 Find duplicate user contest entries:
+
+SELECT User_ID, Contest_ID, Team_ID, COUNT(*) FROM UserContest
+GROUP BY User_ID, Contest_ID, Team_ID HAVING COUNT(*) > 1;
+--139 Find the user with the most winnings:
+
+SELECT TOP 1 User_ID, SUM(Winnings) AS Total_Winnings FROM UserContest
+GROUP BY User_ID
+ORDER BY Total_Winnings DESC;
+--140 Find contests where a user has not participated:
+
+SELECT * FROM Contest
+WHERE Contest_ID NOT IN (SELECT DISTINCT Contest_ID FROM UserContest WHERE User_ID = 1);
+
+--141 Select all scoring rules:
+SELECT * FROM ScoringRules;
+--142 Find active scoring rules:
+
+SELECT * FROM ScoringRules WHERE Is_Active = 1;
+--143 Find scoring rules for a specific action (e.g., 'Run Scored'): SELECT * FROM ScoringRules WHERE Action = 'Run Scored';
+
+
+
+--144 Count the number of scoring rules by action:
+
+SELECT Action, COUNT(*) AS Rule_Count FROM ScoringRules GROUP BY Action;
+--145 Find scoring rules with points greater than 10:
+SELECT * FROM ScoringRules WHERE Points > 10;
+
+--146 Update a scoring rule's points:
+UPDATE ScoringRules SET Points = 2 WHERE Rule_ID = 1;
+
+--147 Delete a scoring rule by ID:
+DELETE FROM ScoringRules WHERE Rule_ID = 19; Select * from ScoringRules
+
+--148 Find duplicate scoring rules:
+SELECT Action, COUNT(*) FROM ScoringRules GROUP BY Action HAVING COUNT(*) > 1;
+
+--149 Find the scoring rule with the highest points:
+SELECT TOP 1 * FROM ScoringRules ORDER BY Points DESC;
+
+--150 Find scoring rules valid in 2023:
+SELECT * FROM ScoringRules WHERE Valid_From <= '2023-12-31' AND Valid_To >= '2023-01-01';
+---Total Runs Scored by Players in Completed Matches SELECT
+p.Player_Name,
+t.Team_Name,
+SUM(ps.Runs_Scored) AS Total_Runs FROM PlayerStats ps
+JOIN Player p ON ps.Player_ID = p.Player_ID JOIN Team t ON p.Team_ID = t.Team_ID
+JOIN Matches m ON ps.Match_ID = m.Match_ID WHERE m.Status = 'Completed'
+GROUP BY p.Player_Name, t.Team_Name ORDER BY Total_Runs DESC;
+--Average Rating Points by Team (ODI Format) SELECT
+t.Team_Name,
+AVG(r.Ranking_Points) AS Avg_Rating FROM Rankings r
+JOIN Player p ON r.Player_ID = p.Player_ID JOIN Team t ON p.Team_ID = t.Team_ID WHERE r.Format = 'ODI'
+GROUP BY t.Team_Name ORDER BY Avg_Rating DESC;
+---Number of Matches Officiated per Umpire SELECT
+u.Umpire_Name,
+u.Country,
+COUNT(m.Match_ID) AS Matches_Officiated FROM Umpire u
+LEFT JOIN Matches m ON u.Umpire_ID = m.Umpire_ID GROUP BY u.Umpire_Name, u.Country
+ORDER BY Matches_Officiated DESC;
+
+
+---Most Popular Team Formations in User Teams SELECT
+ut.Formation,
+COUNT(DISTINCT u.User_ID) AS Users_Count FROM UserTeam ut
+JOIN Users u ON ut.User_ID = u.User_ID GROUP BY ut.Formation
+ORDER BY Users_Count DESC;
+
+--Find all players with their team names and countries:
+SELECT p.Player_Name, t.Team_Name, t.Country FROM Player p
+JOIN Team t ON p.Team_ID = t.Team_ID;
+SELECT m.Match_ID, m.Match_Date, v.Venue_Name, v.City, v.Country FROM Matches m
+JOIN Venue v ON m.Venue_ID = v.Venue_ID;
+
+--Find umpires who officiated matches with venue details:
+SELECT DISTINCT u.Umpire_Name, v.Venue_Name, v.City FROM Umpire u
+JOIN Matches m ON u.Umpire_ID = m.Umpire_ID JOIN Venue v ON m.Venue_ID = v.Venue_ID;
+--List all players with their player type and team:
+SELECT p.Player_Name, p.Player_Type, t.Team_Name FROM Player p
+JOIN Team t ON p.Team_ID = t.Team_ID;
+--Find match details with series, venue and umpire info:
+SELECT m.Match_ID, s.Series_Name, v.Venue_Name, u.Umpire_Name FROM Matches m
+JOIN Series s ON m.Series_ID = s.Series_ID JOIN Venue v ON m.Venue_ID = v.Venue_ID JOIN Umpire u ON m.Umpire_ID = u.Umpire_ID;
+--Show player stats with match and team details:
+SELECT ps.Player_Name, m.Match_Date, t.Team_Name, ps.Runs_Scored, ps.Wickets_Taken FROM PlayerStats ps
+JOIN Matches m ON ps.Match_ID = m.Match_ID JOIN Team t ON ps.Team_ID = t.Team_ID;
+--Show live scores with match and team details:
+SELECT ls.Match_ID, m.Match_Date, bt.Team_Name AS Batting_Team, bl.Team_Name AS Bowling_Team, ls.Total_Runs, ls.Wickets
+FROM LiveScores ls
+JOIN Matches m ON ls.Match_ID = m.Match_ID
+JOIN Team bt ON ls.Batting_Team_ID = bt.Team_ID JOIN Team bl ON ls.Bowling_Team_ID = bl.Team_ID;
