@@ -51,9 +51,6 @@ The **CricFantasy Database** is a **SQL-based mini-project** designed to manage 
 
 ---
 
-## 📸 Screenshot Output
-*(Add your output screenshots here – e.g., a screenshot of a query result showing user rankings or a player's stats)*
-
 ---
 
 ## 🔮 Future Work
