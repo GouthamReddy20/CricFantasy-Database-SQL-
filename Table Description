@@ -1,0 +1,65 @@
+3.2Table Description
+Following are the tables along with constraints used in the CricFantasy database.
+1.Users: This table contains details of registered users, including their username, email, password, registration date, and account balance.
+Constraints: User_ID serves as the primary key. Foreign keys in other tables reference this ID to link user-specific data.
+2.Umpire: This table stores information about cricket umpires, including their name, country, and experience.
+Constraints: Umpire_ID is the primary key.
+3.Venue: This table stores details about cricket venues, including the venue name, city, country, and capacity.
+Constraints: Venue_ID is the primary key.
+4.Teams: This table contains details about cricket teams, including their team name, code, home ground, and captain.
+Constraints: Team_ID serves as the primary key. Foreign keys in other tables reference this ID to link team-specific data.
+5.Series: This table stores information about cricket series, such as the series name, start date, end date, and participating teams.
+Constraints: Series_ID is the primary key.
+6.Matches: This table stores information about cricket matches, including the participating teams, match date, time, venue, and result.
+Constraints: Match_ID is the primary key. Foreign keys reference this ID to link match-specific data in contests and user teams.
+7.Player: This table stores information about cricket players, such as their name, date of birth, batting/bowling styles, team affiliation, and credit value.
+Constraints: Player_ID is the primary key. Foreign keys in other tables reference this ID to link player-specific data.
+8.LiveScores: This table stores live score updates for ongoing matches, including the match ID, current innings, overs, runs, wickets, and other relevant information.
+Constraints: Score_ID is the primary key. Foreign key links to the Matches table.
+9.PlayerStats: This table stores detailed statistics for each player in every match, including batting statistics (runs, balls faced, fours, sixes), bowling statistics (overs, wickets, runs conceded), and fielding statistics (catches, run-outs).
+Constraints: Composite primary key formed by Match_ID and Player_ID. Foreign keys link to Matches and Player tables.
+10.Rankings: This table tracks player rankings across different formats (Test, ODI, T20) and categories (Batsman, Bowler, All-rounder).
+Constraints: Ranking_ID is the primary key. Foreign keys reference Player_ID and Team_ID.
+
+
+11.UserTeam: This table stores user-created fantasy teams for specific matches, including the captain, vice-captain, and formation.
+Constraints: Team_ID is the primary key. Foreign keys link to Users, Matches, and Player tables.
+12.TeamPlayers: This table lists the players in each user's fantasy team, indicating their position (playing or bench).
+Constraints: Composite primary key formed by Team_ID and Player_ID. Foreign keys link to UserTeam and Player tables.
+13.Contest: This table contains details about fantasy cricket contests, including entry fees, prize pools, and participation limits.
+Constraints: Contest_ID is the primary key. Foreign key links to the Matches table.
+14.UserContest: This table tracks user participation in contests, including their final points, rank, and winnings.
+Constraints: Entry_ID is the primary key. Foreign keys link to Users, Contest, and UserTeam tables.
+15.ScoringRules: This table defines the scoring system for fantasy points based on player actions (runs, wickets, etc.).
+Constraints: Rule_ID is the primary key.
+16.UserPoints: This table stores the calculated fantasy points for each player in a user's team for a specific contest.
+Constraints: Calculation_ID is the primary key. Foreign keys link to Users, Contest, Matches, and Player tables.
+17.Transactions: This table records user financial transactions, including deposits, withdrawals, and contest entry fees.
+Constraints: Transaction_ID is the primary key. Foreign key links to the Users table.
+18.Leaderboard: This table displays the leaderboard for each contest, showing user rankings and total points.
+Constraints: Composite primary key formed by Contest_ID and User_ID. Foreign keys link to Contest, Users, and UserTeam tables.
+19.Notifications: This table stores system notifications for users, such as match reminders and contest updates.
+Constraints: Notification_ID is the primary key. Foreign key links to the Users table.
+3.3Relational Database Scheme
+The relational database schema for All in one travel booking system database is as follows: The relational database schema for the CricFantasy database is as follows:
+1.Users(User_ID, Username, Email, Password, Registration_Date, Last_Login, Is_Active, Full_Name, Contact_Number, Address, City, State, Country, Zip_Code, Profile_Picture, Account_Balance)
+2.Umpire(Umpire_ID, Umpire_Name, Country, Experience)
+3.Venue(Venue_ID, Venue_Name, City, Country, Capacity)
+4.Teams(Team_ID, Team_Name, Team_Code, Home_Ground, Coach, Captain_ID, Is_Active, Logo)
+
+
+5.Series(Series_ID, Series_Name, Start_Date, End_Date, Participating_Teams)
+6.Matches(Match_ID, Team1_ID, Team2_ID, Match_Date, Match_Time, Venue, Series, Format, Is_Completed, Result)
+7.Player(Player_ID, Player_Name, Date_of_Birth, Batting_Style, Bowling_Style, Team_ID, Role, Country, Profile_Picture, Is_Active, Credit_Value)
+8.LiveScores(Score_ID, Match_ID, Current_Innings, Overs, Runs, Wickets, Other_Info)
+9.PlayerStats(Match_ID, Player_ID, Batting_Runs, Batting_Balls, Batting_Fours, Batting_Sixes, Bowling_Overs, Bowling_Wickets, Bowling_Runs_Conceded, Fielding_Catches, Fielding_RunOuts)
+10.Rankings(Ranking_ID, Format, Category, Player_ID, Player_Rank, Team_ID, Points)
+11.UserTeam(Team_ID, User_ID, Match_ID, Captain_ID, Vice_Captain_ID, Total_Credits, Formation, Created_At)
+12.TeamPlayers(Team_ID, Player_ID, Is_Substitute, Position)
+13.Contest(Contest_ID, Match_ID, Entry_Fee, Prize_Pool, Max_Participants, Current_Participants, Contest_Type, Start_Time, Status, Created_At)
+14.UserContest(Entry_ID, User_ID, Contest_ID, Team_ID, Final_Points, Final_Rank, Winnings, Status, Joined_At)
+15.ScoringRules(Rule_ID, Action, Points, Is_Active, Valid_From, Valid_To)
+16.UserPoints(Calculation_ID, User_ID, Contest_ID, Match_ID, Player_ID, Points, Points_Breakdown, Calculated_At)
+17.Transactions(Transaction_ID, User_ID, Amount, Transaction_Type, Status, Transaction_Date, Reference_ID, Description)
+18.Leaderboard(Contest_ID, User_ID, Team_ID, Total_Points, Current_Rank, Last_Updated)
+19.Notifications(Notification_ID, User_ID, Message, Type, Is_Read, Created_At)
