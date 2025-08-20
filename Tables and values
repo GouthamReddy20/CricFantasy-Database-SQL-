@@ -1,0 +1,723 @@
+create database Cricfantasy
+create table Users (
+User_ID	int primary key,
+User_Name	varchar(50) unique not null, Email_ID	varchar(50) not null, Password	varchar(100) not null, phone_no	varchar(10) null
+)
+Select * from users
+
+INSERT INTO Users (User_ID, User_Name, Email_ID, Password, phone_no) VALUES (1, 'Amit Sharma', 'amit.sharma@email.com', 'P@ssword123', '9876543210'),
+(2, 'Rahul Verma', 'rahul.verma@email.com', 'SecurePass456', '9123456789'),
+(3, 'Priya Mehta', 'priya.mehta@email.com', 'Qwerty@789', '9988776655'), (4, 'Ravi Kumar', 'ravi.kumar@email.com', 'Pass@word987', NULL),
+(5, 'Neha Gupta', 'neha.gupta@email.com', 'HelloWorld@1', '9543216780'),
+(6, 'Suresh Nair', 'suresh.nair@email.com', 'Abc@1234', '9845612378'),
+
+
+(7, 'Anjali Das', 'anjali.das@email.com', 'Das@Pass567', '9732156480'),
+(8, 'Vikram Singh', 'vikram.singh@email.com', 'Vikram@9087', '9876543120'), (9, 'Kiran Joshi', 'kiran.joshi@email.com', 'Joshi@Password1', NULL),
+(10, 'Alok Mishra', 'alok.mishra@email.com', 'Alok@Pass345', '9321654780'),
+(11, 'Pooja Iyer', 'pooja.iyer@email.com', 'Iyer@Secure678', '9871236540'),
+(12, 'Harish Patel', 'harish.patel@email.com', 'Patel@Pass123', '9123678901'), (13, 'Deepa Reddy', 'deepa.reddy@email.com', 'Deepa@Strong1', NULL),
+(14, 'Mohit Saxena', 'mohit.saxena@email.com', 'Mohit@9876', '9786543210'),
+(15, 'Swati Agarwal', 'swati.agarwal@email.com', 'Swati@Pass765', '9645781230'),
+(16, 'Gautam Rao', 'gautam.rao@email.com', 'Rao@123456', '9456123789'), (17, 'Ramesh Yadav', 'ramesh.yadav@email.com', 'Yadav@Pass888', NULL),
+(18, 'Meena Kapoor', 'meena.kapoor@email.com', 'Kapoor@Secure456', '9812763450'),
+(19, 'Vikas Jain', 'vikas.jain@email.com', 'Jain@Pass321', '9876123456'),
+(20, 'Sneha Menon', 'sneha.menon@email.com', 'Menon@987654', '9554123789'),
+(21, 'Arjun Prasad', 'arjun.prasad@email.com', 'Arjun@Pass777', '9988771122'),
+(22, 'Divya Ghosh', 'divya.ghosh@email.com', 'Divya@Secure999', '9845123780'),
+(23, 'Kunal Choudhary', 'kunal.choudhary@email.com', 'Kunal@Pass123', '9312784560'), (24, 'Neeraj Tiwari', 'neeraj.tiwari@email.com', 'Tiwari@Pass567', NULL),
+(25, 'Pallavi Sen', 'pallavi.sen@email.com', 'Sen@Secure890', '9654123789'),
+(26, 'Rohit Bhatt', 'rohit.bhatt@email.com', 'Bhatt@Pass543', '9987123450'),
+(27, 'Asha Malik', 'asha.malik@email.com', 'Asha@Secure321', '9812345679'),
+(28, 'Manoj Desai', 'manoj.desai@email.com', 'Desai@Pass876', '9776543210'),
+(29, 'Vidya Sinha', 'vidya.sinha@email.com', 'Vidya@Secure234', '9876543219'),
+(30, 'Sanjay Dutta', 'sanjay.dutta@email.com', 'Dutta@Pass555', '9845671230'), Select * from users
+Create table Umpire ( Umpire_ID INT PRIMARY KEY ,
+Umpire_Name VARCHAR(50) unique NOT NULL, Country VARCHAR(50) NOT NULL,
+Date_of_Birth DATE, Matches_Officiated INT DEFAULT 0
+);
+Select * from umpire
+
+INSERT INTO Umpire (Umpire_ID, Umpire_Name, Country, Date_of_Birth, Matches_Officiated) VALUES
+(101,	'Simon Taufel', 'Australia', '1971-01-21', 214),
+(102,	'Aleem Dar', 'Pakistan', '1968-06-06', 325),
+(103,	'Kumar Dharmasena', 'Sri Lanka', '1971-04-24', 189),
+(104,	'Marais Erasmus', 'South Africa', '1964-02-27', 278),
+(105,	'Richard Kettleborough', 'England', '1973-03-15', 245),
+(106,	'Nitin Menon', 'India', '1983-11-02', 142),
+(107,	'Chris Gaffaney', 'New Zealand', '1975-11-30', 167),
+(108,	'Paul Reiffel', 'Australia', '1966-04-19', 134),
+(109,	'Joel Wilson', 'West Indies', '1966-12-30', 156),
+(110,	'Rod Tucker', 'Australia', '1964-05-10', 198),
+(111,	'Bruce Oxenford', 'Australia', '1960-03-05', 287),
+(112,	'Anil Chaudhary', 'India', '1966-12-12', 175),
+(113,	'Michael Gough', 'England', '1979-01-05', 123),
+(114,	'Ruchira Palliyaguruge', 'Sri Lanka', '1970-01-01', 132),
+(115,	'Langton Rusere', 'Zimbabwe', '1985-03-05', 89);
+Select * from Umpire CREATE TABLE Venue (
+Venue_ID INT PRIMARY KEY,
+Venue_Name VARCHAR(100) unique NOT NULL, City VARCHAR(50) NOT NULL,
+Country VARCHAR(50) NOT NULL,
+Capacity INT NOT NULL
+);
+
+
+Select * from Venue
+INSERT INTO Venue (Venue_ID, Venue_Name, City, Country, Capacity) VALUES
+(500,	'Narendra Modi Stadium', 'Ahmedabad', 'India', '132000'),
+(501,	'Eden Gardens', 'Kolkata', 'India', 68000),
+(502,	'Melbourne Cricket Ground', 'Melbourne', 'Australia', 100024),
+(503,	'Lord''s Cricket Ground', 'London', 'England', 30000),
+(504,	'Newlands Cricket Ground', 'Cape Town', 'South Africa', 25000),
+(505,	'Gaddafi Stadium', 'Lahore', 'Pakistan', 27000),
+(506,	'Sydney Cricket Ground', 'Sydney', 'Australia', 48000),
+(507,	'R. Premadasa Stadium', 'Colombo', 'Sri Lanka', 35000),
+(508,	'Sher-e-Bangla Stadium', 'Dhaka', 'Bangladesh', 26000),
+(509,	'Dubai International Stadium', 'Dubai', 'UAE', 25000),
+(510,	'Hagley Oval', 'Christchurch', 'New Zealand', 20000),
+(511,	'M. Chinnaswamy Stadium', 'Bengaluru', 'India', 40000),
+(512,	'Wanderers Stadium', 'Johannesburg', 'South Africa', 34000);
+
+Select * from Venue
+Create table team (
+team_id	int primary key, team_name	varchar(50) not null, country	varchar(50) not null,
+)
+
+Select * from team
+INSERT INTO Team (Team_ID, Team_Name, Country) VALUES (1, 'India', 'India'),
+(2, 'Australia', 'Australia'),
+(3, 'England', 'England'),
+(4, 'Pakistan', 'Pakistan'),
+(5, 'South Africa', 'South Africa'), (6, 'New Zealand', 'New Zealand'), (7, 'West Indies', 'West Indies'), (8, 'Sri Lanka','Sri Lanka' ),
+(9, 'Bangladesh' , 'Bangladesh'), (10,'Afghanistan','Afghanistan' ), (11,'Mumbai Indians', 'India'), (12,'Chennai Super Kings', 'India'),
+(13,'Royal Challengers Bangalore', 'India'), (14,'Kolkata Knight Riders', 'India'), (15,'Delhi Capitals', 'India'),
+(16,'Punjab Kings', 'India'), (17,'Rajasthan Royals', 'India'), (18,'Sunrisers Hyderabad', 'India'), (19,'Lucknow Super Giants', 'India'), (20,'Gujarat Titans', 'India');
+Select * from team CREATE TABLE Series (
+Series_ID INT PRIMARY KEY,
+Series_Name VARCHAR(100) NOT NULL ,
+Host_Country VARCHAR(50) NOT NULL, Start_Date DATE NOT NULL, End_Date DATE NOT NULL,
+Format VARCHAR(20) CHECK (Format IN ('Test', 'ODI', 'T20', 'World Cup', 'Championship')), Status VARCHAR(15) CHECK (Status IN ('Upcoming', 'Ongoing', 'Completed')), Number_of_Matches INT DEFAULT 0,
+Participating_Teams VARCHAR(500) NOT NULL
+);
+Select * from Series
+
+
+INSERT INTO Series VALUES
+(3001, 'ICC Cricket World Cup 2023', 'India', '2023-10-05', '2023-11-19', 'ODI', 'Completed', 48,
+'India, Australia, England, Pakistan, South Africa, New Zealand, Sri Lanka, Bangladesh, Afghanistan, Netherlands'),
+
+(3002, 'The Ashes 2023', 'England', '2023-06-16', '2023-07-31', 'Test', 'Completed', 5,
+'England, Australia'),
+
+(3003, 'Asia Cup 2023', 'Sri Lanka', '2023-08-30', '2023-09-17', 'ODI', 'Completed', 13,
+'India, Pakistan, Sri Lanka, Bangladesh, Afghanistan, Nepal'),
+(3004, 'Indian Premier League 2024', 'India', '2024-03-22', '2024-05-26', 'T20', 'Upcoming', 74, 'Mumbai Indians, Chennai Super Kings, Royal Challengers Bangalore, Kolkata Knight Riders,
+Delhi Capitals, Punjab Kings, Rajasthan Royals, Sunrisers Hyderabad, Lucknow Super Giants, Gujarat Titans'),
+
+(3005, 'South Africa vs India Test Series', 'South Africa', '2023-12-26', '2024-01-15', 'Test', 'Ongoing', 3,
+'South Africa, India'); Select * from Series
+CREATE TABLE Matches (
+Match_ID VARCHAR(20) PRIMARY KEY,
+Match_Date DATE NOT NULL,
+Series_ID INT NOT NULL FOREIGN KEY REFERENCES Series(Series_ID), -- Fixed syntax Series_Name VARCHAR(100) NOT NULL,
+Venue_ID INT NOT NULL FOREIGN KEY REFERENCES Venue(Venue_ID),	-- Fixed syntax Venue_Name VARCHAR(100) NOT NULL,
+Umpire_ID INT NOT NULL FOREIGN KEY REFERENCES Umpire(Umpire_ID), -- Fixed syntax Umpire_Name VARCHAR(50) NOT NULL,
+Status VARCHAR(15) CHECK (Status IN ('Upcoming', 'Ongoing', 'Completed', 'Abandoned')), Result VARCHAR(50) CHECK (Result IN ('Team1 Win', 'Team2 Win', 'Draw', 'No Result') OR Result
+IS NULL),
+Team1_ID INT NOT NULL FOREIGN KEY REFERENCES Team(Team_ID),	-- Fixed syntax Team1_Name VARCHAR(50) NOT NULL,
+Team2_ID INT NOT NULL FOREIGN KEY REFERENCES Team(Team_ID),	-- Fixed syntax Team2_Name VARCHAR(50) NOT NULL,
+Toss_Winner VARCHAR(50),
+Toss_Decision VARCHAR(10) CHECK (Toss_Decision IN ('Bat', 'Bowl') OR Toss_Decision IS NULL)
+);
+
+select * from Matches
+
+
+INSERT INTO Matches (Match_ID, Match_Date, Series_ID, Series_Name, Venue_ID, Venue_Name, Umpire_ID, Umpire_Name, Status, Result, Team1_ID, Team1_Name, Team2_ID, Team2_Name, Toss_Winner, Toss_Decision)
+VALUES
+-- Match 1: India (Team1) vs Australia (Team2)
+('INDvAUS_1', '2023-10-08', 3001, 'ICC Cricket World Cup 2023', 500, 'Narendra Modi Stadium', 101, 'Simon Taufel', 'Completed', 'Team1 Win', 1, 'India', 2, 'Australia', 'India', 'Bat'),
+
+-- Match 2: England (Team1) vs Pakistan (Team2)
+('ENGvPAK_2', '2023-10-10', 3001, 'ICC Cricket World Cup 2023', 503, 'Lord''s Cricket Ground', 104, 'Marais Erasmus', 'Completed', 'Team1 Win', 3, 'England', 4, 'Pakistan', 'Pakistan', 'Bowl'),
+-- Match 3: England (Team1) vs Australia (Team2)
+('ENGvAUS_3', '2023-06-20', 3002, 'The Ashes 2023', 503, 'Lord''s Cricket Ground',
+104, 'Marais Erasmus', 'Completed', 'Team2 Win', 3, 'England', 2, 'Australia', 'Australia', 'Bowl'),
+
+-- Match 4: Australia (Team1) vs England (Team2)
+('AUSvENG_4', '2023-06-25',3002, 'The Ashes 2023', 502, 'Melbourne Cricket Ground',
+108, 'Paul Reiffel', 'Completed', 'Team2 Win', 2, 'Australia', 3, 'England', 'England', 'Bat'),
+
+
+
+-- Match 5: India (Team1) vs Pakistan (Team2)
+('INDvPAK_5', '2023-09-03', 3003, 'Asia Cup 2023', 507, 'R. Premadasa Stadium',
+103, 'Kumar Dharmasena', 'Completed', 'Team1 Win', 1, 'India', 4, 'Pakistan', 'Pakistan', 'Bowl'),
+
+Select * from Matches CREATE TABLE Player (
+Player_ID INT PRIMARY KEY, Player_Name VARCHAR(100) NOT NULL, DOB DATE,
+Player_Type VARCHAR(20) CHECK (Player_Type IN ('Batsman', 'Bowler', 'All-rounder', 'Wicketkeeper')),
+Batting_Style VARCHAR(50), Bowling_Style VARCHAR(50),
+Team_ID INT foreign key references Team (Team_ID) NOT NULL, Team_Name VARCHAR(50) NOT NULL
+);
+Select * From Player
+
+INSERT INTO Player (Player_ID, Player_Name, DOB, Player_Type, Batting_Style, Bowling_Style, Team_ID,
+Team_Name) VALUES
+(1001, 'Virat Kohli', '1988-11-05', 'Batsman', 'Right-handed', NULL, 1, 'India'),
+(1002, 'Rohit Sharma', '1987-04-30', 'Batsman', 'Right-handed', NULL, 1, 'India'),
+(1003, 'Jasprit Bumrah', '1993-12-06', 'Bowler', 'Right-handed', 'Right-arm fast',1, 'India'), (1004, 'Ravindra Jadeja', '1988-12-06', 'All-rounder', 'Left-handed', 'Left-arm orthodox',1, 'India'),
+(1005, 'KL Rahul', '1992-04-18', 'Wicketkeeper', 'Right-handed', NULL,1, 'India'),
+(1006, 'Mohammed Shami', '1990-09-03', 'Bowler', 'Right-handed', 'Right-arm fast-medium',1, 'India'),
+(1007, 'Shreyas Iyer', '1994-12-06', 'Batsman', 'Right-handed', 'Legbreak',1, 'India'), (1008, 'Rishabh Pant', '1997-10-04', 'Wicketkeeper', 'Left-handed', NULL,1, 'India'),
+(1009, 'Hardik Pandya', '1993-10-11', 'All-rounder', 'Right-handed', 'Right-arm fast-medium',1, 'India'),
+(1010, 'Ruturaj Gaikwad', '1997-01-31', 'Batsman', 'Right-handed', NULL,1, 'India'), (1011, 'Shubman Gill', '1999-09-08', 'Batsman', 'Right-handed', NULL,1, 'India'),
+(1012, 'Mohammed Siraj', '1994-03-13', 'Bowler', 'Right-handed', 'Right-arm fast',1, 'India'), (1013, 'Ishan Kishan', '1998-07-18', 'Wicketkeeper', 'Left-handed', NULL,1, 'India'),
+(1014, 'Yuzvendra Chahal', '1990-07-23', 'Bowler', 'Right-handed', 'Legbreak googly',1, 'India'), (1015, 'Suryakumar Yadav', '1990-09-14', 'Batsman', 'Right-handed', NULL,1, 'India'),
+(1016, 'Steve Smith', '1989-06-02', 'Batsman', 'Right-handed', 'Legbreak',2, 'Australia'), (1017, 'Pat Cummins', '1993-05-08', 'Bowler', 'Right-handed', 'Right-arm fast',2, 'Australia'), (1018, 'Glenn Maxwell', '1988-10-14', 'All-rounder', 'Right-handed', 'Right-arm offbreak',2, 'Australia'),
+(1019, 'David Warner', '1986-10-27', 'Batsman', 'Left-handed', 'Legbreak',2, 'Australia'), (1020, 'Mitchell Starc', '1990-01-30', 'Bowler', 'Left-handed', 'Left-arm fast',2, 'Australia'), (1021, 'Josh Hazlewood', '1991-01-08', 'Bowler', 'Left-handed', 'Right-arm fast-medium',2, 'Australia'),
+(1022, 'Marnus Labuschagne', '1994-06-22', 'Batsman', 'Right-handed', 'Legbreak',2, 'Australia'), (1023, 'Alex Carey', '1991-08-27', 'Wicketkeeper', 'Left-handed', NULL,2, 'Australia'),
+(1024, 'Cameron Green', '1999-06-03', 'All-rounder', 'Right-handed', 'Right-arm fast-medium',2, 'Australia'),
+(1025, 'Travis Head', '1993-12-29', 'Batsman', 'Left-handed', 'Right-arm offbreak',2, 'Australia'), (1026, 'Ben Stokes', '1991-06-04', 'All-rounder', 'Left-handed', 'Right-arm fast-medium',3, 'England'),
+(1027, 'Joe Root', '1990-12-30', 'Batsman', 'Right-handed', 'Right-arm offbreak',3, 'England'), (1028, 'Jos Buttler', '1990-09-08', 'Wicketkeeper', 'Right-handed', NULL,3, 'England'),
+(1029, 'Jofra Archer', '1995-04-01', 'Bowler', 'Right-handed', 'Right-arm fast',3, 'England'), (1030, 'Jonny Bairstow', '1989-09-26', 'Wicketkeeper', 'Right-handed', NULL,3, 'England'), (1031, 'Adil Rashid', '1988-02-17', 'Bowler', 'Right-handed', 'Legbreak googly',3, 'England'), (1032, 'Mark Wood', '1990-01-11', 'Bowler', 'Right-handed', 'Right-arm fast',3, 'England'), (1033, 'Liam Livingstone', '1993-08-04', 'All-rounder', 'Right-handed', 'Right-arm offbreak',3, 'England'),
+(1034, 'Dawid Malan', '1987-09-03', 'Batsman', 'Left-handed', 'Legbreak',3, 'England'),
+
+
+(1035, 'Chris Woakes', '1989-03-02', 'All-rounder', 'Right-handed', 'Right-arm fast-medium',3, 'England'),
+(1036, 'Babar Azam', '1994-10-15', 'Batsman', 'Right-handed', NULL,4, 'Pakistan'),
+(1037, 'Shaheen Afridi', '2000-04-06', 'Bowler', 'Left-handed', 'Left-arm fast',4, 'Pakistan'), (1038, 'Shadab Khan', '1998-10-04', 'All-rounder', 'Right-handed', 'Legbreak googly',4, 'Pakistan'), (1039, 'Mohammad Rizwan', '1992-06-01', 'Wicketkeeper', 'Right-handed', NULL,4, 'Pakistan'),
+(1040, 'Fakhar Zaman', '1990-04-10', 'Batsman', 'Left-handed', 'Slow left-arm orthodox',4, 'Pakistan'),
+(1041, 'Haris Rauf', '1993-11-07', 'Bowler', 'Right-handed', 'Right-arm fast',4, 'Pakistan'),
+(1042, 'Imam-ul-Haq', '1995-12-12', 'Batsman', 'Left-handed', NULL,4, 'Pakistan'),
+(1043, 'Naseem Shah', '2003-02-15', 'Bowler', 'Right-handed', 'Right-arm fast',4, 'Pakistan'), (1044, 'Mohammad Nawaz', '1994-03-21', 'All-rounder', 'Left-handed', 'Left-arm orthodox',4, 'Pakistan'),
+(1045, 'Iftikhar Ahmed', '1990-09-03', 'Batsman', 'Right-handed', 'Right-arm offbreak',4, 'Pakistan'),
+(1046, 'Kagiso Rabada', '1995-05-25', 'Bowler', 'Left-handed', 'Right-arm fast',5, 'South Africa'), (1047, 'Quinton de Kock', '1992-12-17', 'Wicketkeeper', 'Left-handed', NULL,5, 'South Africa'), (1048, 'Aiden Markram', '1994-10-04', 'Batsman', 'Right-handed', 'Right-arm offbreak',5, 'South Africa'),
+(1049, 'Anrich Nortje', '1993-11-16', 'Bowler', 'Right-handed', 'Right-arm fast',5, 'South Africa'), (1050, 'David Miller', '1989-06-10', 'Batsman', 'Left-handed', NULL,5, 'South Africa'),
+Select * from player
+
+
+CREATE TABLE LiveScores (
+Match_ID VARCHAR(20) PRIMARY KEY FOREIGN KEY REFERENCES Matches(Match_ID),
+Umpire_ID INT FOREIGN KEY REFERENCES Umpire(Umpire_ID), Umpire_Name VARCHAR(50),
+Venue_ID INT FOREIGN KEY REFERENCES Venue(Venue_ID),
+Venue_Name VARCHAR(100),
+Batting_Team_ID INT FOREIGN KEY REFERENCES Team(Team_ID), Batting_Team_Name VARCHAR(50),
+Bowling_Team_ID INT FOREIGN KEY REFERENCES Team(Team_ID), Bowling_Team_Name VARCHAR(50),
+Batsman1_ID INT FOREIGN KEY REFERENCES Player(Player_ID), Batsman1_Name VARCHAR(100),
+Batsman2_ID INT FOREIGN KEY REFERENCES Player(Player_ID), Batsman2_Name VARCHAR(100),
+Bowler_ID INT FOREIGN KEY REFERENCES Player(Player_ID), Bowler_Name VARCHAR(100),
+Total_Runs INT DEFAULT 0, Wickets INT DEFAULT 0, Overs DECIMAL(3,1) NOT NULL,
+Ball_Number INT CHECK (Ball_Number BETWEEN 1 AND 6), Match_Date DATE
+);
+
+select * from LiveScores
+
+
+INSERT INTO LiveScores VALUES
+-- Series: ICC Cricket World Cup 2023
+-- Match 1: India vs Australia (2023-10-08)
+('INDvAUS_1',101, 'Simon Taufel',500, 'Narendra Modi Stadium',1, 'India',2, 'Australia', 1001, 'Virat Kohli',1002, 'Rohit Sharma',1017, 'Pat Cummins', 189, 4, 28.5, 5, '2023-10-08'),
+
+-- Match 2: England vs Pakistan (2023-10-10)
+('ENGvPAK_2',104, 'Marais Erasmus',503, 'Lord''s Cricket Ground',3, 'England',4, 'Pakistan', 1027, 'Joe Root',1026, 'Ben Stokes',1037, 'Shaheen Afridi', 145, 3, 25.2, 3, '2023-10-10'),
+-- Series: The Ashes 2023
+-- Match 3: England vs Australia (2023-06-20)
+('ENGvAUS_3',104, 'Marais Erasmus',503, 'Lord''s Cricket Ground',3, 'England',2, 'Australia', 1027, 'Joe Root',1026, 'Ben Stokes',1020, 'Mitchell Starc', 210, 2, 35.0, 1, '2023-06-20'),
+
+
+-- Match 4: Australia vs England (2023-06-25)
+('AUSvENG_4',108, 'Paul Reiffel',501, 'Melbourne Cricket Ground',2, 'Australia',3, 'England', 1016, 'Steve Smith',1019, 'David Warner',1029, 'Jofra Archer', 175, 5, 30.4, 6, '2023-06-25'),
+-- Series: Asia Cup 2023
+-- Match 5: India vs Pakistan (2023-09-03)
+('INDvPAK_5',103, 'Kumar Dharmasena',507, 'R. Premadasa Stadium',1, 'India',4, 'Pakistan', 1001, 'Virat Kohli',1002, 'Rohit Sharma',1037, 'Shaheen Afridi', 200, 3, 40.0, 2, '2023-09-03'),
+
+-- Match 6: Sri Lanka vs Bangladesh (2023-09-05)
+('SLvBAN_6',103, 'Kumar Dharmasena',507, 'R. Premadasa Stadium',8, 'Sri Lanka',9, 'Bangladesh', 1078, 'Pathum Nissanka',1079, 'Charith Asalanka',1086, 'Shakib Al Hasan', 132, 5, 20.4, 6, '2023-
+09-05'),
+-- Series: Indian Premier League 2024
+-- Match 7: MI vs CSK (2024-03-25)
+('MIvCSK_7',112, 'Anil Chaudhary',501, 'Eden Gardens',11, 'Mumbai Indians',12, 'Chennai Super Kings',
+1002, 'Rohit Sharma',1015, 'Suryakumar Yadav',1004, 'Ravindra Jadeja', 150, 2, 15.3, 4, '2024-03-
+25'),
+
+-- Match 8: RCB vs KKR (2024-03-27)
+('RCBvKKR_8',106, 'Nitin Menon',511, 'M. Chinnaswamy Stadium',13, 'Royal Challengers Bangalore',14, 'Kolkata Knight Riders',
+1001, 'Virat Kohli',1033, 'Liam Livingstone',1020, 'Mitchell Starc', 180, 4, 18.2, 5, '2024-03-27'),
+
+-- Series: South Africa vs India Test Series
+-- Match 9: South Africa vs India (2023-12-30)
+('SAvIND_9',105, 'Richard Kettleborough',504, 'Newlands Cricket Ground',5, 'South Africa',1, 'India',
+1047, 'Quinton de Kock',1048, 'Aiden Markram',1003, 'Jasprit Bumrah', 150, 4, 25.3, 4, '2023-12-
+30'),
+-- Match 10: India vs South Africa (2024-01-05)
+('INDvSA_10',104, 'Marais Erasmus',512, 'Wanderers Stadium',1, 'India',5, 'South Africa', 1001, 'Virat Kohli',1002, 'Rohit Sharma',1046, 'Kagiso Rabada', 120, 3, 20.0, 2, '2024-01-05');
+SELECT * FROM LiveScores; CREATE TABLE PlayerStats (
+Match_ID VARCHAR(20) NOT NULL FOREIGN KEY REFERENCES Matches(Match_ID),
+Player_ID INT NOT NULL FOREIGN KEY REFERENCES Player(Player_ID), Player_Name VARCHAR(100) NOT NULL,
+Team_ID INT NOT NULL FOREIGN KEY REFERENCES Team(Team_ID), Team_Name VARCHAR(50) NOT NULL,
+Runs_Scored INT DEFAULT 0, Balls_Faced INT DEFAULT 0, Fours INT DEFAULT 0, Sixes INT DEFAULT 0,
+Wickets_Taken INT DEFAULT 0, Balls_Bowled INT DEFAULT 0, Runs_Conceded INT DEFAULT 0, Maidens INT DEFAULT 0, Catches INT DEFAULT 0, Stumpings INT DEFAULT 0,
+PRIMARY KEY (Match_ID, Player_ID)
+);
+
+Select * from PlayerStats
+INSERT INTO PlayerStats (Match_ID, Player_ID, Player_Name, Team_ID, Team_Name, Runs_Scored, Balls_Faced, Fours, Sixes, Wickets_Taken, Balls_Bowled, Runs_Conceded, Maidens, Catches, Stumpings) VALUES
+-- Match 1: INDvAUS_1 (World Cup)
+('INDvAUS_1', 1001, 'Virat Kohli', 1, 'India', 85, 68, 10, 2, 0, 0, 0, 0, 1, 0),
+('INDvAUS_1', 1002, 'Rohit Sharma', 1, 'India', 72, 59, 8, 3, 0, 0, 0, 0, 0, 0),
+
+
+('INDvAUS_1',	1003,	'Jasprit Bumrah',	1, 'India', 0, 0, 0,	0,	3,	36, 45, 1, 0, 0),
+('INDvAUS_1',	1016,	'Steve Smith', 2,	'Australia', 42, 38,	6,	1,	0, 0, 0, 0, 0, 0),
+('INDvAUS_1',	1017,	'Pat Cummins', 2,	'Australia', 18, 12,	2,	1,	2, 24, 38, 0, 1, 0),
+-- Match 2: ENGvPAK_2 (World Cup)
+('ENGvPAK_2',	1027,	'Joe Root', 3, 'England', 65, 47, 7, 2, 0, 0, 0, 0, 0, 0),	
+('ENGvPAK_2',	1026,	'Ben Stokes', 3, 'England', 88, 62, 9, 4, 1, 18, 28, 0, 2,	0),
+('ENGvPAK_2',	1037,	'Shaheen Afridi', 4, 'Pakistan', 0, 0, 0, 0, 4, 48, 55, 2,	0, 0),
+('ENGvPAK_2',	1036,	'Babar Azam', 4, 'Pakistan', 94, 75, 11, 3, 0, 0, 0, 0, 1,	0),
+-- Match 3: ENGvAUS_3 (Ashes)
+('ENGvAUS_3',	1027,	'Joe Root', 3, 'England', 102, 118,	14,	1,	0,	0,	0,	0, 0, 0),
+('ENGvAUS_3',	1020,	'Mitchell Starc', 2, 'Australia', 0, 0,	0,	0,	5,	54, 89, 3, 1, 0),
+('ENGvAUS_3',	1019,	'David Warner', 2, 'Australia', 76, 82,	8,	0,	0,	0, 0, 0, 2, 0),
+-- Match 5: INDvPAK_5 (Asia Cup)
+('INDvPAK_5',	1001,	'Virat Kohli', 1, 'India', 122, 94,	15, 5, 0, 0,	0, 0, 1, 0),
+('INDvPAK_5',	1003,	'Jasprit Bumrah', 1, 'India', 0, 0,	0, 0, 4, 48,	52, 2, 0, 0),
+('INDvPAK_5',	1036,	'Babar Azam', 4, 'Pakistan', 89,	67, 10, 3, 0, 0, 0, 0,	0,	0),
+('INDvPAK_5',	1037,	'Shaheen Afridi', 4, 'Pakistan',	0, 0, 0, 0, 2, 42, 63,	1,	1, 0),
+
+-- Match 6: SLvBAN_6 (Asia Cup)
+('SLvBAN_6',	1078,	'Pathum Nissanka', 8, 'Sri Lanka', 67, 45, 8, 2, 0, 0, 0, 0, 0, 0),
+('SLvBAN_6',	1080,	'Dushmantha Chameera', 8, 'Sri Lanka', 0, 0, 0, 0, 3, 36, 40, 1, 0, 0),
+('SLvBAN_6',	1086,	'Shakib Al Hasan', 9, 'Bangladesh', 58, 39, 7, 1, 2, 30, 35, 0, 1, 0),
+Select * from PlayerStats CREATE TABLE Rankings (
+Format VARCHAR(20) CHECK (Format IN ('Test', 'ODI', 'T20','IPL')),
+Player_Role VARCHAR(30) CHECK (Player_Role IN ('Batsman', 'Bowler', 'All-rounder')), Current_Rank INT NOT NULL,
+Player_ID INT NOT NULL FOREIGN KEY REFERENCES Player(Player_ID), Player_Name VARCHAR(100) NOT NULL,
+Team_ID INT NOT NULL FOREIGN KEY REFERENCES Team(Team_ID), Team_Name VARCHAR(50) NOT NULL,
+Ranking_Points INT NOT NULL,
+PRIMARY KEY (Format, Player_Role, Current_Rank)
+);
+Select * from Rankings INSERT INTO Rankings VALUES
+-- ========== TEST FORMAT ==========
+('Test', 'Batsman', 1, 1001, 'Virat Kohli', 1, 'India', 913),
+('Test', 'Batsman', 2, 1027, 'Joe Root', 3, 'England', 887),
+('Test', 'Batsman', 3, 1016, 'Steve Smith', 2, 'Australia', 842),
+('Test',	'Batsman',	4,	1056,	'Kane Williamson', 6, 'New Zealand', 812),
+('Test',	'Batsman',	5,	1025,	'Travis Head', 2, 'Australia', 798),
+('Test',	'Bowler',	1,	1046,	'Kagiso Rabada', 5, 'South Africa', 892),
+('Test',	'Bowler',	2,	1020,	'Mitchell Starc', 2, 'Australia', 865),
+('Test',	'Bowler',	3,	1003,	'Jasprit Bumrah', 1, 'India', 847),
+('Test',	'Bowler',	4,	1057,	'Trent Boult', 6, 'New Zealand', 821),
+('Test',	'Bowler',	5,	1012,	'Mohammed Siraj', 1, 'India', 798),
+
+('Test', 'All-rounder', 1, 1026, 'Ben Stokes', 3, 'England', 845),
+('Test', 'All-rounder', 2, 1004, 'Ravindra Jadeja', 1, 'India', 815),
+('Test', 'All-rounder', 3, 1085, 'Dhananjaya de Silva', 8, 'Sri Lanka', 732),
+('Test', 'All-rounder', 4, 1067, 'Jason Holder', 7, 'West Indies', 712),
+('Test', 'All-rounder', 5, 1086, 'Shakib Al Hasan', 9, 'Bangladesh', 698),
+
+-- ========== ODI FORMAT ==========
+('ODI', 'Batsman', 1, 1001, 'Virat Kohli', 1, 'India', 890),
+('ODI', 'Batsman', 2, 1036, 'Babar Azam', 4, 'Pakistan', 872),
+('ODI', 'Batsman', 3, 1002, 'Rohit Sharma', 1, 'India', 845),
+
+
+('ODI', 'Batsman', 4, 1048, 'Aiden Markram', 5, 'South Africa', 798),
+('ODI', 'Batsman', 5, 1078, 'Pathum Nissanka', 8, 'Sri Lanka', 765),
+
+('ODI', 'Bowler', 1, 1003, 'Jasprit Bumrah', 1, 'India', 832),
+('ODI', 'Bowler', 2, 1037, 'Shaheen Afridi', 4, 'Pakistan', 815),
+('ODI', 'Bowler', 3, 1046, 'Kagiso Rabada', 5, 'South Africa', 798),
+('ODI', 'Bowler', 4, 1089, 'Taskin Ahmed', 9, 'Bangladesh', 745),
+('ODI', 'Bowler', 5, 1061, 'Lockie Ferguson', 6, 'New Zealand', 721),
+
+('ODI', 'All-rounder', 1, 1086, 'Shakib Al Hasan', 9, 'Bangladesh', 845),
+('ODI', 'All-rounder', 2, 1004, 'Ravindra Jadeja', 1, 'India', 812),
+
+
+Select * from Rankings CREATE TABLE UserTeam (
+Team_ID INT IDENTITY(1,1) PRIMARY KEY,
+User_ID INT NOT NULL FOREIGN KEY REFERENCES Users(User_ID), User_Name VARCHAR(50) NOT NULL,
+Match_ID VARCHAR(20) NOT NULL FOREIGN KEY REFERENCES Matches(Match_ID), Match_Name VARCHAR(100) NOT NULL,
+Captain_ID INT NOT NULL FOREIGN KEY REFERENCES Player(Player_ID), Captain_Name VARCHAR(100) NOT NULL,
+Vice_Captain_ID INT NOT NULL FOREIGN KEY REFERENCES Player(Player_ID), Vice_Captain_Name VARCHAR(100) NOT NULL,
+Total_Credits DECIMAL(5,2) DEFAULT 100.00 CHECK (Total_Credits <= 100.00),
+Formation VARCHAR(20) NOT NULL CHECK (Formation IN ('5-3-3', '6-4-1', '4-5-2', '7-2-2')), Created_At DATETIME DEFAULT GETDATE(),
+CONSTRAINT CHK_Captain_Vice CHECK (Captain_ID <> Vice_Captain_ID)
+);
+Select * from UserTeam
+INSERT INTO UserTeam (User_ID, User_Name, Match_ID, Match_Name, Captain_ID, Captain_Name,
+Vice_Captain_ID, Vice_Captain_Name, Formation) VALUES
+(1, 'Amit Sharma', 'INDvAUS_1', 'India vs Australia - WC2023', 1001, 'Virat Kohli', 1003, 'Jasprit Bumrah', '5-3-3'),
+(2, 'Rahul Verma', 'ENGvPAK_2', 'England vs Pakistan - WC2023', 1026, 'Ben Stokes', 1037, 'Shaheen Afridi', '6-4-1'),
+(3, 'Priya Mehta', 'SLvBAN_6', 'Sri Lanka vs Bangladesh - Asia Cup', 1078, 'Pathum Nissanka', 1086, 'Shakib Al Hasan', '4-5-2'),
+(4, 'Ravi Kumar', 'MIvCSK_7', 'Mumbai vs Chennai - IPL2024', 1002, 'Rohit Sharma', 1004, 'Ravindra Jadeja', '7-2-2'),
+(5, 'Neha Gupta', 'RCBvKKR_8', 'Bangalore vs Kolkata - IPL2024', 1001, 'Virat Kohli', 1020, 'Mitchell Starc', '5-3-3'),
+(6, 'Suresh Nair', 'SAvIND_9', 'South Africa vs India - Test', 1046, 'Kagiso Rabada', 1001, 'Virat Kohli', '6-4-1'),
+(7, 'Anjali Das', 'INDvSA_10', 'India vs South Africa - Test', 1003, 'Jasprit Bumrah', 1046, 'Kagiso Rabada', '4-5-2'),
+(8, 'Vikram Singh', 'ENGvAUS_3', 'England vs Australia - Ashes', 1027, 'Joe Root', 1020, 'Mitchell Starc', '5-3-3'),
+(9, 'Kiran Joshi', 'AUSvENG_4', 'Australia vs England - Ashes', 1016, 'Steve Smith', 1019, 'David Warner', '7-2-2'),
+(10, 'Alok Mishra', 'INDvPAK_5', 'India vs Pakistan - Asia Cup', 1001, 'Virat Kohli', 1037, 'Shaheen Afridi', '6-4-1'),
+(11, 'Pooja Iyer', 'SLvBAN_6', 'Sri Lanka vs Bangladesh - Asia Cup', 1080, 'Dushmantha Chameera', 1086, 'Shakib Al Hasan', '4-5-2'),
+(12, 'Harish Patel', 'MIvCSK_7', 'Mumbai vs Chennai - IPL2024', 1015, 'Suryakumar Yadav', 1004, 'Ravindra Jadeja', '5-3-3'),
+(13, 'Deepa Reddy', 'RCBvKKR_8', 'Bangalore vs Kolkata - IPL2024', 1020, 'Mitchell Starc', 1001, 'Virat Kohli', '7-2-2'),
+(14, 'Mohit Saxena', 'SAvIND_9', 'South Africa vs India - Test', 1047, 'Quinton de Kock', 1003, 'Jasprit Bumrah', '6-4-1'),
+
+Select * from UserTeam CREATE TABLE TeamPlayers (
+Team_ID INT NOT NULL FOREIGN KEY REFERENCES UserTeam(Team_ID), Player_ID INT NOT NULL FOREIGN KEY REFERENCES Player(Player_ID),
+Team_Name VARCHAR(50) NOT NULL, -- User's fantasy team name (username) Player_Name VARCHAR(100) NOT NULL,
+Is_Substitute BIT DEFAULT 0,
+Position VARCHAR(20) CHECK (Position IN ('Playing', 'Bench')), PRIMARY KEY (Team_ID, Player_ID)
+);
+Select * from TeamPlayers
+
+INSERT INTO TeamPlayers (Team_ID, Player_ID, Team_Name, Player_Name, Is_Substitute, Position) VALUES
+-- Team 1: Amit Sharma's Fantasy Team (10 players)
+(1,	1001,	'Amit	Sharma',	'Virat Kohli', 0, 'Playing'),
+(1,	1002,	'Amit	Sharma',	'Rohit Sharma', 0, 'Playing'),
+(1,	1003,	'Amit	Sharma',	'Jasprit Bumrah', 0, 'Playing'),
+(1,	1016,	'Amit	Sharma',	'Steve Smith', 1, 'Bench'),
+(1,	1017,	'Amit	Sharma',	'Pat Cummins', 1, 'Bench'),
+(1,	1020,	'Amit	Sharma',	'Mitchell Starc', 0, 'Playing'),
+(1,	1036,	'Amit	Sharma',	'Babar Azam', 0, 'Playing'),
+(1,	1037,	'Amit	Sharma',	'Shaheen Afridi', 0, 'Playing'),
+(1,	1046,	'Amit	Sharma',	'Kagiso Rabada', 0, 'Playing'),
+(1,	1056,	'Amit	Sharma',	'Kane Williamson', 0, 'Playing'),
+-- Team 2: Rahul Verma's Fantasy Team (10 players)
+(2,	1026,	'Rahul	Verma',	'Ben Stokes', 0, 'Playing'),
+(2,	1027,	'Rahul	Verma',	'Joe Root', 0, 'Playing'),
+(2,	1037,	'Rahul	Verma',	'Shaheen Afridi', 0, 'Playing'),
+(2,	1036,	'Rahul	Verma',	'Babar Azam', 1, 'Bench'),
+(2,	1048,	'Rahul	Verma',	'Aiden Markram', 0, 'Playing'),
+(2,	1050,	'Rahul	Verma',	'David Miller', 0, 'Playing'),
+(2,	1057,	'Rahul	Verma',	'Trent Boult', 0, 'Playing'),
+(2,	1061,	'Rahul	Verma',	'Lockie Ferguson', 1, 'Bench'),
+(2,	1077,	'Rahul	Verma',	'Wanindu Hasaranga', 0, 'Playing'),
+(2,	1096,	'Rahul	Verma',	'Rashid Khan', 0, 'Playing'),
+
+-- Teams 3-10 follow same pattern (8 teams x 10 players = 80 records) (3, 1004, 'Priya Mehta', 'Ravindra Jadeja', 0, 'Playing'),
+(3, 1009, 'Priya Mehta', 'Hardik Pandya', 0, 'Playing'),
+--...
+(10, 1100, 'Sanjay Dutta', 'Najibullah Zadran', 1, 'Bench'); Select * from TeamPlayers
+CREATE TABLE Contest ( Contest_ID INT primary key,
+Contest_Name VARCHAR(100) NOT NULL,
+Match_ID VARCHAR(20) NOT NULL FOREIGN KEY REFERENCES Matches(Match_ID), Entry_Fee DECIMAL(8,2) DEFAULT 0.00,
+Prize_Pool DECIMAL(10,2) NOT NULL,
+Max_Participants INT DEFAULT 100, Current_Participants INT DEFAULT 0,
+Contest_Type VARCHAR(20) CHECK (Contest_Type IN ('Free', 'Paid', 'Head-to-Head', 'Mega')), Start_Time DATETIME NOT NULL,
+Status VARCHAR(20) DEFAULT 'Open' CHECK (Status IN ('Open', 'Closed', 'Completed')), Created_At DATETIME DEFAULT GETDATE()
+);
+Select * from Contest
+
+
+INSERT INTO Contest (Contest_ID, Contest_Name, Match_ID, Entry_Fee, Prize_Pool, Max_Participants, Current_Participants, Contest_Type, Start_Time, Status)
+VALUES
+(1, 'World Cup Mega', 'INDvAUS_1', 50, 5000, 200, 198, 'Mega', '2023-10-08 13:30:00', 'Completed'),
+(2, 'INDvAUS Free', 'INDvAUS_1', 0, 200, 100, 100, 'Free', '2023-10-08 13:30:00', 'Completed'),
+(3, 'INDvAUS H2H', 'INDvAUS_1', 25, 100, 2, 2, 'Head-to-Head', '2023-10-08 13:30:00', 'Completed'),
+(4, 'ENGvPAK Premium', 'ENGvPAK_2', 40, 3000, 150, 145, 'Paid', '2023-10-10 10:00:00', 'Completed'),
+(5, 'ENGvPAK Free', 'ENGvPAK_2', 0, 150, 50, 32, 'Free', '2023-10-10 10:00:00', 'Completed'),
+(6, 'ENGvPAK Mega', 'ENGvPAK_2', 100, 10000, 500, 500, 'Mega', '2023-10-10 10:00:00', 'Completed'),
+(7, 'Ashes Elite', 'ENGvAUS_3', 75, 5000, 100, 98, 'Paid', '2023-06-20 09:30:00', 'Completed'),
+(8, 'Ashes H2H', 'ENGvAUS_3', 50, 200, 2, 2, 'Head-to-Head', '2023-06-20 09:30:00', 'Completed'),
+(9, 'Ashes Free', 'ENGvAUS_3', 0, 100, 50, 50, 'Free', '2023-06-20 09:30:00', 'Completed'),
+(10,'AUSvENG Classic', 'AUSvENG_4', 30, 1500, 75, 75, 'Paid', '2023-06-25 08:00:00', 'Completed'),
+(11,'AUSvENG Mega', 'AUSvENG_4', 100, 7500, 300, 300, 'Mega', '2023-06-25 08:00:00', 'Completed'),
+(12,'AUSvENG H2H', 'AUSvENG_4', 40, 160, 2, 1, 'Head-to-Head', '2023-06-25 08:00:00', 'Closed'),
+(13,'INDvPAK Thriller', 'INDvPAK_5', 60, 10000, 500, 500, 'Mega', '2023-09-03 14:00:00',
+'Completed'),
+(14,'INDvPAK Free', 'INDvPAK_5', 0, 500, 100, 89, 'Free', '2023-09-03 14:00:00', 'Completed'),
+(15,'INDvPAK Premium', 'INDvPAK_5', 75, 2500, 100, 100, 'Paid', '2023-09-03 14:00:00', 'Completed'),
+(16,'SLvBAN Battle', 'SLvBAN_6', 20, 800, 40, 40, 'Paid', '2023-09-05 14:00:00', 'Completed'),
+(17,'SLvBAN H2H', 'SLvBAN_6', 15, 60, 2, 2, 'Head-to-Head', '2023-09-05 14:00:00', 'Completed'),
+(18,'SLvBAN Free', 'SLvBAN_6', 0, 100, 30, 25, 'Free', '2023-09-05 14:00:00', 'Completed'),
+(19,'MIvCSK Clash', 'MIvCSK_7', 75, 10000, 1000, 876, 'Mega', '2024-03-25 19:30:00', 'Open'),
+(20,'MIvCSK Premium', 'MIvCSK_7', 50, 5000, 200, 154, 'Paid', '2024-03-25 19:30:00', 'Open'),
+(21,'MIvCSK Free', 'MIvCSK_7', 0, 1000, 100, 45, 'Free', '2024-03-25 19:30:00', 'Open'),
+
+(22,'RCBvKKR Elite', 'RCBvKKR_8', 25, 5000, 200, 123, 'Paid', '2024-03-27 15:30:00', 'Open'),
+(23,'RCBvKKR Mega', 'RCBvKKR_8', 100, 15000, 500, 342, 'Mega', '2024-03-27 15:30:00', 'Open'),
+(24,'RCBvKKR H2H', 'RCBvKKR_8', 30, 120, 2, 0, 'Head-to-Head', '2024-03-27 15:30:00', 'Open'),
+(25,'SAvIND Test', 'SAvIND_9', 30, 1500, 50, 48, 'Paid', '2023-12-30 08:00:00', 'Closed'),
+(26,'SAvIND Experts', 'SAvIND_9', 50, 2500, 75, 75, 'Paid', '2023-12-30 08:00:00', 'Closed'),
+(27,'SAvIND Free', 'SAvIND_9', 0, 300, 30, 12, 'Free', '2023-12-30 08:00:00', 'Closed'),
+(28,'INDvSA Challenge', 'INDvSA_10', 40, 2000, 100, 0, 'Paid', '2024-01-05 08:00:00', 'Open'),
+(29,'INDvSA Mega', 'INDvSA_10', 80, 10000, 500, 0, 'Mega', '2024-01-05 08:00:00', 'Open'),
+(30,'INDvSA H2H', 'INDvSA_10', 35, 140, 2, 0, 'Head-to-Head', '2024-01-05 08:00:00', 'Open');
+Select * from Contest CREATE TABLE UserContest (
+Entry_ID INT IDENTITY(1,1) PRIMARY KEY,
+User_ID INT NOT NULL FOREIGN KEY REFERENCES Users(User_ID),
+User_Name VARCHAR(50) NOT NULL, -- Added User_Name
+Contest_ID INT NOT NULL FOREIGN KEY REFERENCES Contest(Contest_ID), Contest_Name VARCHAR(100) NOT NULL, -- Added Contest_Name
+Team_ID INT NOT NULL FOREIGN KEY REFERENCES UserTeam(Team_ID),
+Final_Points INT DEFAULT 0, Final_Rank INT CHECK (Final_Rank > 0), Winnings DECIMAL(10,2) DEFAULT 0.00,
+Status VARCHAR(20) DEFAULT 'Active' CHECK (Status IN ('Active', 'Completed', 'Withdrawn')), Joined_At DATETIME DEFAULT GETDATE(),
+CONSTRAINT UC_UserContest UNIQUE (User_ID, Contest_ID, Team_ID)
+);
+
+select * from UserContest
+INSERT INTO UserContest (User_ID, User_Name, Contest_ID, Contest_Name, Team_ID, Final_Points, Final_Rank, Winnings, Status)
+VALUES
+
+
+-- User 1 (Amit Sharma) participates in 3 contests
+(1,	'Amit	Sharma',	1,	'World Cup Mega', 1, 1200, 5, 500.00, 'Completed'),
+(1,	'Amit	Sharma',	2,	'INDvAUS Free', 1, 800, 10, 100.00, 'Completed'),
+(1,	'Amit	Sharma',	3,	'INDvAUS H2H', 1, 950, 7, 200.00, 'Completed'),
+-- User 2 (Rahul Verma) participates in 2 contests
+(2, 'Rahul Verma', 1, 'World Cup Mega', 2, 1100, 6, 300.00, 'Completed'),
+(2, 'Rahul Verma', 4, 'ENGvPAK Premium', 2, 700, 15, 50.00, 'Completed'),
+
+-- User 3 (Priya Mehta) participates in 3 contests
+(3, 'Priya Mehta', 5, 'INDvPAK Thriller', 3, 1300, 3, 1000.00, 'Completed'),
+(3, 'Priya Mehta', 6, 'INDvPAK Free', 3, 900, 8, 150.00, 'Completed'),
+(3, 'Priya Mehta', 7, 'INDvPAK Premium', 3, 1000, 5, 400.00, 'Completed'),
+-- User 4 (Ravi Kumar) participates in 2 contests
+(4, 'Ravi Kumar', 8, 'SLvBAN Battle', 4, 850, 12, 75.00, 'Completed'),
+(4, 'Ravi Kumar', 9, 'SLvBAN H2H', 4, 1200, 4, 600.00, 'Completed'),
+-- User 5 (Neha Gupta) participates in 3 contests
+(5, 'Neha Gupta', 10, 'MIvCSK Clash', 5, 1400, 2, 1200.00, 'Completed'),
+(5, 'Neha Gupta', 11, 'MIvCSK Premium', 5, 750, 14, 60.00, 'Completed'),
+(5, 'Neha Gupta', 12, 'MIvCSK Free', 5, 1100, 6, 300.00, 'Completed'),
+-- User 6 (Suresh Nair) participates in 2 contests
+(6, 'Suresh Nair', 13, 'RCBvKKR Elite', 6, 900, 9, 150.00, 'Completed'),
+(6, 'Suresh Nair', 14, 'RCBvKKR Mega', 6, 1300, 3, 1000.00, 'Completed'),
+
+--	User 7 (Anjali	Das)	participates in 3 contests
+(7,	'Anjali Das',	15,	'SAvIND Test', 7, 800, 11, 100.00, 'Completed'),
+(7,	'Anjali Das',	16,	'SAvIND Experts', 7, 950, 7, 200.00, 'Completed'),
+(7,	'Anjali Das',	17,	'SAvIND Free', 7, 1200, 5, 500.00, 'Completed'),
+
+-- User 8 (Vikram Singh) participates in 2 contests
+(8, 'Vikram Singh', 18, 'INDvSA Challenge', 8, 700, 15, 50.00, 'Completed'),
+(8, 'Vikram Singh', 19, 'INDvSA Mega', 8, 1100, 6, 300.00, 'Completed'),
+-- User 9 (Kiran Joshi) participates in 3 contests
+(9, 'Kiran Joshi', 20, 'ENGvAUS Classic', 9, 1300, 3, 1000.00, 'Completed'),
+(9, 'Kiran Joshi', 21, 'ENGvAUS Mega', 9, 900, 8, 150.00, 'Completed'),
+(9, 'Kiran Joshi', 22, 'ENGvAUS H2H', 9, 1000, 5, 400.00, 'Completed'),
+-- User 10 (Alok Mishra) participates in 2 contests
+(10, 'Alok Mishra', 23, 'AUSvENG Classic', 10, 850, 12, 75.00, 'Completed'),
+(10, 'Alok Mishra', 24, 'AUSvENG Mega', 10, 1200, 4, 600.00, 'Completed'); Select * from UserContest
+CREATE TABLE ScoringRules ( Rule_ID INT PRIMARY KEY,
+Action VARCHAR(50) UNIQUE NOT NULL, Points INT NOT NULL,
+Is_Active BIT DEFAULT 1, Valid_From DATE, Valid_To DATE
+);
+Select * from ScoringRules
+
+INSERT INTO ScoringRules (Rule_ID, Action, Points, Is_Active, Valid_From, Valid_To) VALUES
+-- Batting Rules
+(1, 'Run Scored', 1, 1, '2023-01-01', '2024-12-31'),
+(2, 'Boundary (4 runs)', 1, 1, '2023-01-01', '2024-12-31'),
+(3, 'Six (6 runs)', 2, 1, '2023-01-01', '2024-12-31'),
+(4, 'Half-Century (50 runs)', 8, 1, '2023-01-01', '2024-12-31'),
+(5, 'Century (100 runs)', 16, 1, '2023-01-01', '2024-12-31'),
+
+
+(6, 'Duck (0 runs)', -2, 1, '2023-01-01', '2024-12-31'),
+-- Bowling Rules
+(7, 'Wicket Taken', 25, 1, '2023-01-01', '2024-12-31'),
+(8, 'Maiden Over', 12, 1, '2023-01-01', '2024-12-31'),
+(9, '3-Wicket Haul', 8, 1, '2023-01-01', '2024-12-31'),
+(10, '4-Wicket Haul', 16, 1, '2023-01-01', '2024-12-31'),
+(11, '5-Wicket Haul', 25, 1, '2023-01-01', '2024-12-31'),
+(12, 'Dot Ball', 1, 1, '2023-01-01', '2024-12-31'),
+-- Fielding Rules
+(13, 'Catch', 8, 1, '2023-01-01', '2024-12-31'),
+(14, 'Stumping', 12, 1, '2023-01-01', '2024-12-31'),
+(15, 'Run Out (Direct)', 12, 1, '2023-01-01', '2024-12-31'),
+(16, 'Run Out (Assist)', 6, 1, '2023-01-01', '2024-12-31'),
+
+-- Bonus Rules
+(17, 'Man of the Match', 50, 1, '2023-01-01', '2024-12-31'),
+(18, 'Captain', 2, 1, '2023-01-01', '2024-12-31'), -- Points multiplier for captain
+(19, 'Vice-Captain', 1.5, 1, '2023-01-01', '2024-12-31'); -- Points multiplier for vice-captain Select * from ScoringRules
+CREATE TABLE UserPoints (
+Calculation_ID INT IDENTITY(1,1) PRIMARY KEY,
+User_ID INT NOT NULL FOREIGN KEY REFERENCES Users(User_ID),
+User_Name VARCHAR(50) NOT NULL, -- Added for easier tracking Contest_ID INT NOT NULL FOREIGN KEY REFERENCES Contest(Contest_ID), Contest_Name VARCHAR(100) NOT NULL, -- Added for easier tracking Match_ID VARCHAR(20) NOT NULL FOREIGN KEY REFERENCES Matches(Match_ID), Player_ID INT NOT NULL FOREIGN KEY REFERENCES Player(Player_ID),
+Player_Name VARCHAR(100) NOT NULL, -- Added for easier tracking Points INT NOT NULL,
+Points_Breakdown VARCHAR(500), -- JSON or text to store detailed breakdown of points Calculated_At DATETIME DEFAULT GETDATE()
+);
+Select * from UserPoints
+
+INSERT INTO UserPoints (User_ID, User_Name, Contest_ID, Contest_Name, Match_ID, Player_ID, Player_Name, Points, Points_Breakdown)
+VALUES
+-- User 1 (Amit Sharma) in Contest 1 (World Cup Mega)
+(1, 'Amit Sharma', 1, 'World Cup Mega', 'INDvAUS_1', 1001, 'Virat Kohli', 120, 'Runs: 85, Fours: 10,
+Sixes: 2, Half-Century: 8'),
+(1, 'Amit Sharma', 1, 'World Cup Mega', 'INDvAUS_1', 1002, 'Rohit Sharma', 90, 'Runs: 72, Fours: 8,
+Sixes: 3'),
+(1, 'Amit Sharma', 1, 'World Cup Mega', 'INDvAUS_1', 1003, 'Jasprit Bumrah', 75, 'Wickets: 3, Dot
+Balls: 12'),
+-- User 2 (Rahul Verma) in Contest 4 (ENGvPAK Premium)
+(2, 'Rahul Verma', 4, 'ENGvPAK Premium', 'ENGvPAK_2', 1026, 'Ben Stokes', 110, 'Runs: 88, Fours: 9,
+Sixes: 4, Wickets: 1'),
+(2, 'Rahul Verma', 4, 'ENGvPAK Premium', 'ENGvPAK_2', 1037, 'Shaheen Afridi', 100, 'Wickets: 4, Dot
+Balls: 18'),
+-- User 3 (Priya Mehta) in Contest 5 (INDvPAK Thriller)
+(3, 'Priya Mehta', 5, 'INDvPAK Thriller', 'INDvPAK_5', 1001, 'Virat Kohli', 130, 'Runs: 122, Fours:
+15, Sixes: 5, Century: 16'),
+(3, 'Priya Mehta', 5, 'INDvPAK Thriller', 'INDvPAK_5', 1003, 'Jasprit Bumrah', 80, 'Wickets: 4, Dot
+Balls: 15'),
+
+-- User 4 (Ravi Kumar) in Contest 8 (SLvBAN Battle)
+(4, 'Ravi Kumar', 8, 'SLvBAN Battle', 'SLvBAN_6', 1078, 'Pathum Nissanka', 70, 'Runs: 67, Fours: 8,
+Sixes: 2'),
+(4, 'Ravi Kumar', 8, 'SLvBAN Battle', 'SLvBAN_6', 1080, 'Dushmantha Chameera', 60, 'Wickets: 3, Dot
+
+
+Balls: 10'),
+-- User 5 (Neha Gupta) in Contest 10 (MIvCSK Clash)
+(5, 'Neha Gupta', 10, 'MIvCSK Clash', 'MIvCSK_7', 1002, 'Rohit Sharma', 85, 'Runs: 78, Fours: 9,
+Sixes: 4'),
+(5, 'Neha Gupta', 10, 'MIvCSK Clash', 'MIvCSK_7', 1004, 'Ravindra Jadeja', 70, 'Wickets: 2, Dot
+Balls: 12'),
+
+-- User 6 (Suresh Nair) in Contest 13 (RCBvKKR Elite)
+(6, 'Suresh Nair', 13, 'RCBvKKR Elite', 'RCBvKKR_8', 1001, 'Virat Kohli', 140, 'Runs: 103, Fours:
+12, Sixes: 6, Century: 16'),
+(6, 'Suresh Nair', 13, 'RCBvKKR Elite', 'RCBvKKR_8', 1020, 'Mitchell Starc', 90, 'Wickets: 3, Dot
+Balls: 15'),
+-- User 7 (Anjali Das) in Contest 15 (SAvIND Test)
+(7, 'Anjali Das', 15, 'SAvIND Test', 'SAvIND_9', 1047, 'Quinton de Kock', 80, 'Runs: 82, Fours: 9,
+Sixes: 1'),
+(7, 'Anjali Das', 15, 'SAvIND Test', 'SAvIND_9', 1046, 'Kagiso Rabada', 70, 'Wickets: 4, Dot Balls:
+12'),
+-- User 8 (Vikram Singh) in Contest 18 (INDvSA Challenge)
+(8, 'Vikram Singh', 18, 'INDvSA Challenge', 'INDvSA_10', 1001, 'Virat Kohli', 75, 'Runs: 63, Fours:
+7, Sixes: 1'),
+(8, 'Vikram Singh', 18, 'INDvSA Challenge', 'INDvSA_10', 1046, 'Kagiso Rabada', 65, 'Wickets: 2,
+Dot Balls: 10'),
+
+-- User 9 (Kiran Joshi) in Contest 20 (ENGvAUS Classic)
+(9, 'Kiran Joshi', 20, 'ENGvAUS Classic', 'ENGvAUS_3', 1027, 'Joe Root', 120, 'Runs: 102, Fours: 14,
+Sixes: 1, Century: 16'),
+(9, 'Kiran Joshi', 20, 'ENGvAUS Classic', 'ENGvAUS_3', 1020, 'Mitchell Starc', 90, 'Wickets: 5, Dot
+Balls: 18'),
+
+-- User 10 (Alok Mishra) in Contest 23 (AUSvENG Classic)
+(10, 'Alok Mishra', 23, 'AUSvENG Classic', 'AUSvENG_4', 1016, 'Steve Smith', 85, 'Runs: 76, Fours:
+8, Sixes: 0'),
+(10, 'Alok Mishra', 23, 'AUSvENG Classic', 'AUSvENG_4', 1019, 'David Warner', 75, 'Runs: 68, Fours:
+7, Sixes: 3'),
+
+-- Additional records for variety
+(1, 'Amit Sharma', 2, 'INDvAUS Free', 'INDvAUS_1', 1016, 'Steve Smith', 50, 'Runs: 42, Fours: 6,
+Sixes: 1'),
+(2, 'Rahul Verma', 6, 'ENGvPAK Mega', 'ENGvPAK_2', 1036, 'Babar Azam', 110, 'Runs: 94, Fours: 11,
+Sixes: 3'),
+(3, 'Priya Mehta', 7, 'INDvPAK Premium', 'INDvPAK_5', 1037, 'Shaheen Afridi', 90, 'Wickets: 2, Dot
+Balls: 12'),
+(4, 'Ravi Kumar', 9, 'SLvBAN H2H', 'SLvBAN_6', 1086, 'Shakib Al Hasan', 80, 'Runs: 58, Fours: 7,
+Sixes: 1, Wickets: 2'),
+(5, 'Neha Gupta', 12, 'MIvCSK Free', 'MIvCSK_7', 1015, 'Suryakumar Yadav', 70, 'Runs: 65, Fours: 8,
+Sixes: 2'),
+(6, 'Suresh Nair', 14, 'RCBvKKR Mega', 'RCBvKKR_8', 1020, 'Mitchell Starc', 85, 'Wickets: 3, Dot
+Balls: 15'),
+(7, 'Anjali Das', 17, 'SAvIND Free', 'SAvIND_9', 1003, 'Jasprit Bumrah', 90, 'Wickets: 5, Dot Balls:
+18'),
+(8, 'Vikram Singh', 19, 'INDvSA Mega', 'INDvSA_10', 1046, 'Kagiso Rabada', 75, 'Wickets: 2, Dot
+Balls: 10');
+Select * from UserPoints CREATE TABLE Transactions (
+Transaction_ID INT IDENTITY(1,1) PRIMARY KEY,
+User_ID INT NOT NULL FOREIGN KEY REFERENCES Users(User_ID),
+User_Name VARCHAR(50) NOT NULL, -- Added for easier tracking Amount DECIMAL(10,2) NOT NULL,
+Transaction_Type VARCHAR(20) CHECK (Transaction_Type IN ('Deposit', 'Withdrawal', 'Winning', 'Entry Fee')),
+Status VARCHAR(20) CHECK (Status IN ('Pending', 'Completed', 'Failed')),
+
+
+Transaction_Date DATETIME DEFAULT GETDATE(),
+Reference_ID VARCHAR(50), -- For payment gateway tracking Description VARCHAR(200) -- Added for additional details
+);
+Select * from Transactions
+INSERT INTO Transactions (User_ID, User_Name, Amount, Transaction_Type, Status, Reference_ID, Description)
+VALUES
+-- Deposits
+(1, 'Amit Sharma', 1000.00, 'Deposit', 'Completed', 'PAY12345', 'Initial deposit via UPI'),
+(2, 'Rahul Verma', 500.00, 'Deposit', 'Completed', 'PAY12346', 'Initial deposit via Credit Card'), (3, 'Priya Mehta', 750.00, 'Deposit', 'Completed', 'PAY12347', 'Initial deposit via NetBanking'), (4, 'Ravi Kumar', 300.00, 'Deposit', 'Completed', 'PAY12348', 'Initial deposit via UPI'),
+(5, 'Neha Gupta', 1200.00, 'Deposit', 'Completed', 'PAY12349', 'Initial deposit via Debit Card'),
+-- Entry Fees
+(1, 'Amit Sharma', 50.00, 'Entry Fee', 'Completed', 'CONTEST1', 'Entry fee for World Cup Mega'), (2, 'Rahul Verma', 40.00, 'Entry Fee', 'Completed', 'CONTEST4', 'Entry fee for ENGvPAK Premium'), (3, 'Priya Mehta', 60.00, 'Entry Fee', 'Completed', 'CONTEST5', 'Entry fee for INDvPAK Thriller'), (4, 'Ravi Kumar', 20.00, 'Entry Fee', 'Completed', 'CONTEST8', 'Entry fee for SLvBAN Battle'),
+(5, 'Neha Gupta', 75.00, 'Entry Fee', 'Completed', 'CONTEST10', 'Entry fee for MIvCSK Clash'),
+-- Winnings
+(1, 'Amit Sharma', 500.00, 'Winning', 'Completed', 'WIN12345', 'Winnings from World Cup Mega'), (2, 'Rahul Verma', 300.00, 'Winning', 'Completed', 'WIN12346', 'Winnings from ENGvPAK Premium'), (3, 'Priya Mehta', 1000.00, 'Winning', 'Completed', 'WIN12347', 'Winnings from INDvPAK Thriller'), (4, 'Ravi Kumar', 75.00, 'Winning', 'Completed', 'WIN12348', 'Winnings from SLvBAN Battle'),
+(5, 'Neha Gupta', 1200.00, 'Winning', 'Completed', 'WIN12349', 'Winnings from MIvCSK Clash'),
+-- Withdrawals
+(1, 'Amit Sharma', 200.00, 'Withdrawal', 'Completed', 'WIT12345', 'Withdrawal to Bank Account'), (2, 'Rahul Verma', 150.00, 'Withdrawal', 'Pending', 'WIT12346', 'Withdrawal request initiated'), (3, 'Priya Mehta', 300.00, 'Withdrawal', 'Completed', 'WIT12347', 'Withdrawal to UPI'),
+(4, 'Ravi Kumar', 100.00, 'Withdrawal', 'Failed', 'WIT12348', 'Withdrawal failed due to insufficient balance'),
+(5, 'Neha Gupta', 500.00, 'Withdrawal', 'Completed', 'WIT12349', 'Withdrawal to Bank Account'), Select * from Transactions
+CREATE TABLE Leaderboard (
+Contest_ID INT NOT NULL FOREIGN KEY REFERENCES Contest(Contest_ID), User_ID INT NOT NULL FOREIGN KEY REFERENCES Users(User_ID),
+User_Name VARCHAR(50) NOT NULL, -- Added for easier tracking
+Team_ID INT NOT NULL FOREIGN KEY REFERENCES UserTeam(Team_ID), -- Added to link to the user's
+
+team
+
+
+
+
+);
+
+
+Total_Points INT DEFAULT 0, Current_Rank INT,
+Last_Updated DATETIME DEFAULT GETDATE(),
+PRIMARY KEY (Contest_ID, User_ID)
+
+Select * from Leaderboard
+INSERT INTO Leaderboard (Contest_ID, User_ID, User_Name, Team_ID, Total_Points, Current_Rank) VALUES
+-- Contest 1: World Cup Mega
+(1,	1,	'Amit Sharma',	1,	1200,	5),
+(1,	2,	'Rahul Verma',	2,	1100,	6),
+(1,	3,	'Priya Mehta',	3,	1300,	3),
+(1,	4,	'Ravi Kumar', 4, 1000, 8),
+(1,	5,	'Neha Gupta', 5, 1400, 2),
+
+-- Contest 4: ENGvPAK Premium
+
+
+(4,	2,	'Rahul Verma', 2, 700, 15),
+(4,	6,	'Suresh Nair', 6, 900, 9),
+(4,	7,	'Anjali Das', 7, 800, 11),
+(4,	8,	'Vikram Singh', 8, 1100, 6),
+(4,	9,	'Kiran Joshi', 9, 1300, 3),
+-- Contest 5: INDvPAK Thriller (5, 3, 'Priya Mehta', 3, 1300, 3),
+(5, 10, 'Alok Mishra', 10, 1200, 4),
+(5,	1,	'Amit Sharma', 1, 1100, 6),
+(5,	2,	'Rahul Verma', 2, 1000, 8),
+(5,	4,	'Ravi Kumar', 4, 950, 10),
+
+-- Contest 10: MIvCSK Clash
+(10,	5,	'Neha Gupta', 5, 1400, 2),
+(10,	6,	'Suresh Nair', 6, 1300, 3),
+(10,	7,	'Anjali Das', 7, 1200, 5),
+(10,	8,	'Vikram Singh', 8, 1100, 6),
+(10,	9,	'Kiran Joshi', 9, 1000, 8),
+s(23, 4, 'Ravi Kumar', 4, 900, 12);
+
+Select * from Leaderboard
+
+CREATE TABLE Notifications (
+Notification_ID INT IDENTITY(1,1) PRIMARY KEY, -- Auto-incrementing primary key User_ID INT NOT NULL FOREIGN KEY REFERENCES Users(User_ID),
+Message VARCHAR(500) NOT NULL,
+Type VARCHAR(20) CHECK (Type IN ('Match', 'Contest', 'Payment', 'System')), Is_Read BIT DEFAULT 0, -- 0 = Unread, 1 = Read
+Created_At DATETIME DEFAULT GETDATE()
+);
+Select * from Notifications
+
+INSERT INTO Notifications (User_ID, Message, Type, Is_Read) VALUES
+-- Match Notifications
+(1, 'Your match INDvAUS_1 is starting in 30 minutes.', 'Match', 0), (2, 'Your match ENGvPAK_2 is starting in 1 hour.', 'Match', 1), (3, 'Your match SLvBAN_6 is starting in 15 minutes.', 'Match', 0), (4, 'Your match MIvCSK_7 is starting in 2 hours.', 'Match', 1), (5, 'Your match RCBvKKR_8 is starting in 45 minutes.', 'Match', 0),
+-- Contest Notifications
+(6, 'You have successfully joined Contest: RCBvKKR Elite.', 'Contest', 1), (7, 'You have successfully joined Contest: SAvIND Test.', 'Contest', 0), (8, 'Contest INDvSA Challenge is now open for joining.', 'Contest', 1), (9, 'You have won ₹500 in Contest: ENGvAUS Classic.', 'Contest', 0),
+(10, 'Contest AUSvENG Classic is starting soon.', 'Contest', 1),
+-- Payment Notifications
+(1, 'Your deposit of ₹1000.00 was successful.', 'Payment', 1), (2, 'Your withdrawal of ₹150.00 is pending.', 'Payment', 0),
+(3, 'Your winnings of ₹1000.00 have been credited.', 'Payment', 1),
+(4, 'Your entry fee of ₹20.00 for SLvBAN Battle was deducted.', 'Payment', 0), (5, 'Your deposit of ₹1200.00 was successful.', 'Payment', 1),
+
+-- System Notifications
+(6, 'System maintenance scheduled for 12 AM to 2 AM.', 'System', 0), (7, 'New feature: Live score updates are now available.', 'System', 1), (8, 'Your account has been verified successfully.', 'System', 0),
+(9, 'Update your app to the latest version for better performance.', 'System', 1), (10, 'Thank you for being a part of CricFantasy!', 'System', 0);
+
+Select * from Notifications
