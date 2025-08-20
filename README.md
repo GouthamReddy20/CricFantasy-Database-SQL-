@@ -1,7 +1,7 @@
 # 🏏 CricFantasy Database – Mini Project
 
 **Name:** C S GOUTHAM REDDY
-**Domain:** Database Management / Data Analysis
+**Domain:** Database Management Systems / SQL
 **Duration:** Academic Mini Project
 
 ---
